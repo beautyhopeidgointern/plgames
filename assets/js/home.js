@@ -68,12 +68,4 @@ function renderHomeGames() {
   });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  document.body.classList.add("page-enter");
-
-  requestAnimationFrame(() => {
-    document.body.classList.remove("page-enter");
-  });
-
-  renderHomeGames();
-});
+renderHomeGames();
