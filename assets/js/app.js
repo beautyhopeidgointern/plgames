@@ -1,26 +1,38 @@
-const PRICE_LIST = {
-  "mobile-legends": {
-    title: "Mobile Legends",
-    subtitle: "Top Up Diamond Murah dan Aman",
-    contact: "6281234567890",
-    formFields: ["User ID", "Zone ID", "Nickname"],
-    items: [
-      { name: "86 Diamond", price: "Rp 20.000" },
-      { name: "172 Diamond", price: "Rp 39.000" },
-      { name: "257 Diamond", price: "Rp 58.000" }
-    ]
-  }
-};
-
 function getGameKey() {
   const params = new URLSearchParams(window.location.search);
-  return params.get("game") || "mobile-legends";
+  return params.get("game") || "";
 }
 
-const gameKey = getGameKey();
+function loadGameData(gameKey) {
+  return new Promise((resolve, reject) => {
+    if (!gameKey) {
+      reject(new Error("Game tidak ditemukan"));
+      return;
+    }
 
-// ambil data dari file terpisah
-const gameData = window.PRICE_DATA;
+    const oldScript = document.getElementById("dynamic-game-data");
+    if (oldScript) oldScript.remove();
+
+    const script = document.createElement("script");
+    script.id = "dynamic-game-data";
+    script.src = `./data/${gameKey}.js`;
+
+    script.onload = () => {
+      if (window.PRICE_DATA) {
+        resolve(window.PRICE_DATA);
+      } else {
+        reject(new Error("Data game kosong"));
+      }
+    };
+
+    script.onerror = () => {
+      reject(new Error("File data game tidak ditemukan"));
+    };
+
+    document.body.appendChild(script);
+  });
+}
+
 const titleEl = document.getElementById("game-title");
 const subtitleEl = document.getElementById("game-subtitle");
 const listEl = document.getElementById("price-list");
@@ -33,8 +45,7 @@ const contactBtn = document.getElementById("contact-btn");
 const orderSection = document.getElementById("order-section");
 const noteEl = document.getElementById("note");
 
-titleEl.textContent = gameData.title;
-subtitleEl.textContent = gameData.subtitle;
+let gameData = null;
 
 function createField(labelText, index) {
   const wrapper = document.createElement("div");
@@ -93,6 +104,7 @@ function renderPriceList() {
     card.appendChild(title);
     card.appendChild(price);
     card.appendChild(button);
+
     listEl.appendChild(card);
   });
 }
@@ -116,6 +128,8 @@ function buildOrderText() {
 }
 
 function updatePreview() {
+  if (!gameData) return;
+
   const text = buildOrderText();
   previewEl.value = text;
 
@@ -126,6 +140,8 @@ function updatePreview() {
 noteEl.addEventListener("input", updatePreview);
 
 copyBtn.addEventListener("click", async () => {
+  if (!gameData) return;
+
   const text = buildOrderText();
 
   try {
@@ -145,6 +161,30 @@ copyBtn.addEventListener("click", async () => {
   }
 });
 
-renderFields();
-renderPriceList();
-updatePreview();
+async function initGamePage() {
+  const gameKey = getGameKey();
+
+  try {
+    window.PRICE_DATA = null;
+    gameData = await loadGameData(gameKey);
+
+    titleEl.textContent = gameData.title;
+    subtitleEl.textContent = gameData.subtitle;
+
+    renderFields();
+    renderPriceList();
+    updatePreview();
+  } catch (error) {
+    titleEl.textContent = "Game tidak ditemukan";
+    subtitleEl.textContent = "Data game belum tersedia atau nama file salah.";
+
+    listEl.innerHTML = `<div class="empty-state">Data price list untuk game ini belum ada.</div>`;
+    fieldsEl.innerHTML = "";
+    selectedProductEl.value = "";
+    selectedPriceEl.value = "";
+    previewEl.value = "";
+    contactBtn.removeAttribute("href");
+  }
+}
+
+initGamePage();
