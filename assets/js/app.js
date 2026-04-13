@@ -78,26 +78,66 @@ function getTotalPriceNumber() {
 
 function updateTotalPrice() {
   if (!totalPriceEl) return;
-
   const total = getTotalPriceNumber();
   totalPriceEl.value = total > 0 ? formatRupiah(total) : "-";
 }
 
-function createField(labelText, index) {
+function normalizeField(field) {
+  if (typeof field === "string") {
+    return {
+      type: "text",
+      label: field,
+      placeholder: `Masukkan ${field}`
+    };
+  }
+
+  return {
+    type: field.type || "text",
+    label: field.label || "Field",
+    placeholder: field.placeholder || `Masukkan ${field.label || "Field"}`,
+    options: Array.isArray(field.options) ? field.options : []
+  };
+}
+
+function createField(field, index) {
+  const config = normalizeField(field);
+
   const wrapper = document.createElement("div");
   wrapper.className = "form-group";
 
   const label = document.createElement("label");
   label.setAttribute("for", `field-${index}`);
-  label.textContent = labelText;
+  label.textContent = config.label;
 
-  const input = document.createElement("input");
-  input.type = "text";
-  input.id = `field-${index}`;
-  input.dataset.label = labelText;
-  input.placeholder = `Masukkan ${labelText}`;
-  input.autocomplete = "off";
+  let input;
+
+  if (config.type === "select") {
+    input = document.createElement("select");
+    input.id = `field-${index}`;
+    input.dataset.label = config.label;
+
+    const defaultOption = document.createElement("option");
+    defaultOption.value = "";
+    defaultOption.textContent = `Pilih ${config.label}`;
+    input.appendChild(defaultOption);
+
+    config.options.forEach((optionValue) => {
+      const option = document.createElement("option");
+      option.value = optionValue;
+      option.textContent = optionValue;
+      input.appendChild(option);
+    });
+  } else {
+    input = document.createElement("input");
+    input.type = "text";
+    input.id = `field-${index}`;
+    input.dataset.label = config.label;
+    input.placeholder = config.placeholder;
+    input.autocomplete = "off";
+  }
+
   input.addEventListener("input", updateWhatsappLink);
+  input.addEventListener("change", updateWhatsappLink);
 
   wrapper.appendChild(label);
   wrapper.appendChild(input);
@@ -109,7 +149,7 @@ function renderFields() {
   if (!fieldsEl || !gameData) return;
 
   fieldsEl.innerHTML = "";
-  gameData.formFields.forEach((field, index) => {
+  (gameData.formFields || []).forEach((field, index) => {
     fieldsEl.appendChild(createField(field, index));
   });
 }
@@ -146,7 +186,6 @@ function createPriceCard(item) {
   };
 
   card.addEventListener("click", selectItem);
-
   card.addEventListener("keydown", (event) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
@@ -204,7 +243,7 @@ function renderPriceList() {
 }
 
 function buildOrderText() {
-  const inputs = fieldsEl ? fieldsEl.querySelectorAll("input") : [];
+  const inputs = fieldsEl ? fieldsEl.querySelectorAll("input, select") : [];
   const lines = [];
 
   lines.push(`Pesanan ${gameData.title}`);
@@ -240,9 +279,7 @@ function updateWhatsappLink() {
 if (qtyMinusBtn) {
   qtyMinusBtn.addEventListener("click", () => {
     const current = getQuantity();
-    if (quantityEl) {
-      quantityEl.value = current > 1 ? current - 1 : 1;
-    }
+    if (quantityEl) quantityEl.value = current > 1 ? current - 1 : 1;
     updateWhatsappLink();
   });
 }
@@ -250,9 +287,7 @@ if (qtyMinusBtn) {
 if (qtyPlusBtn) {
   qtyPlusBtn.addEventListener("click", () => {
     const current = getQuantity();
-    if (quantityEl) {
-      quantityEl.value = current + 1;
-    }
+    if (quantityEl) quantityEl.value = current + 1;
     updateWhatsappLink();
   });
 }
