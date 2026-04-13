@@ -47,5 +47,19 @@ window.GAME_CATALOG = [
     icon: "GI",
     logo: "https://faqs.uwu.ai/assets/images/gallery03/5cdddd73_original.jpg?v=b7e71b8d",
     description: "Genshin Impact Fast via UID. Khusus region Malaysia."
-  }
+  },
+  {
+    slug: "ffmaxid",
+    name: "Free Fire Max (ID)",
+    icon: "FF",
+    logo: "https://faqs.uwu.ai/assets/images/gallery03/616a32a9_original.jpg?v=be67950b",
+    description: "Free Fire Max via UID. Khusus region Indonesia."
+  }, 
+    {
+    slug: "hsrid",
+    name: "Honkai Star Rail (ID)",
+    icon: "HSR",
+    logo: "https://faqs.uwu.ai/assets/images/gallery03/e5c2c2e0_original.jpg?v=b41c8d46",
+    description: "HSR Fast via UID dan server. Khusus region Indonesia."
+  },
 ];
