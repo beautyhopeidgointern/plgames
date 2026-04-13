@@ -82,6 +82,8 @@ function renderPriceList() {
   gameData.items.forEach((item) => {
     const card = document.createElement("div");
     card.className = "price-item";
+    card.setAttribute("role", "button");
+    card.setAttribute("tabindex", "0");
 
     const title = document.createElement("h3");
     title.textContent = item.name;
@@ -90,21 +92,30 @@ function renderPriceList() {
     price.className = "price";
     price.textContent = item.price;
 
-    const button = document.createElement("button");
-    button.type = "button";
-    button.textContent = "Pilih";
-
-    button.addEventListener("click", () => {
+    const selectItem = () => {
       selectedProductEl.value = item.name;
       selectedPriceEl.value = item.price;
+
+      document.querySelectorAll(".price-item").forEach((el) => {
+        el.classList.remove("selected");
+      });
+      card.classList.add("selected");
+
       updatePreview();
       orderSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+
+    card.addEventListener("click", selectItem);
+
+    card.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        selectItem();
+      }
     });
 
     card.appendChild(title);
     card.appendChild(price);
-    card.appendChild(button);
-
     listEl.appendChild(card);
   });
 }
