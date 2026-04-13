@@ -8,6 +8,10 @@ function escapeHtml(value) {
     .replace(/"/g, "&quot;");
 }
 
+function goToGame(slug) {
+  window.location.href = `./game.html?game=${encodeURIComponent(slug)}`;
+}
+
 function renderHomeGames() {
   const games = Array.isArray(window.GAME_CATALOG) ? window.GAME_CATALOG : [];
 
@@ -19,9 +23,10 @@ function renderHomeGames() {
   gameListEl.innerHTML = "";
 
   games.forEach((game) => {
-    const link = document.createElement("a");
-    link.className = "game-card";
-    link.href = `./game.html?game=${encodeURIComponent(game.slug)}`;
+    const card = document.createElement("div");
+    card.className = "game-card";
+    card.setAttribute("role", "button");
+    card.setAttribute("tabindex", "0");
 
     const safeName = escapeHtml(game.name || "Game");
     const safeDescription = escapeHtml(
@@ -30,10 +35,10 @@ function renderHomeGames() {
     const safeIconText = escapeHtml(game.icon || "🎮");
 
     const logoContent = game.logo
-      ? `<img src="${escapeHtml(game.logo)}" alt="${safeName}" loading="lazy" />`
+      ? `<img src="${escapeHtml(game.logo)}" alt="${safeName}" loading="lazy" draggable="false" />`
       : `<span>${safeIconText}</span>`;
 
-    link.innerHTML = `
+    card.innerHTML = `
       <div class="game-card-top">
         <div class="game-icon">${logoContent}</div>
         <div>
@@ -44,7 +49,18 @@ function renderHomeGames() {
       <span class="open-text">Buka Price List →</span>
     `;
 
-    gameListEl.appendChild(link);
+    card.addEventListener("click", () => {
+      goToGame(game.slug);
+    });
+
+    card.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        goToGame(game.slug);
+      }
+    });
+
+    gameListEl.appendChild(card);
   });
 }
 
