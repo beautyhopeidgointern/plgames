@@ -21,6 +21,13 @@ window.GAME_CATALOG = [
     description: "Free Fire Fast via UID. Khusus region Indonesia."
   },
   {
+    slug: "ffmysg",
+    name: "Free Fire",
+    icon: "FF",
+    logo: "https://faqs.uwu.ai/assets/images/gallery03/616a32a9_original.jpg?v=be67950b",
+    description: "Free Fire Fast via UID. Khusus region Malaysia/Singapura."
+  },
+  {
     slug: "pubgm",
     name: "PUBG Mobile",
     icon: "PM",
