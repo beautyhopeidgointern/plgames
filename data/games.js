@@ -28,7 +28,7 @@ window.GAME_CATALOG = [
     description: "Price list UC PUBG Mobile dengan tampilan yang rapi."
   },
   {
-    slug: "Genshin",
+    slug: "genshin",
     name: "Genshin Impact",
     icon: "GI",
     logo: "https://faqs.uwu.ai/assets/images/gallery03/5cdddd73_original.jpg?v=b7e71b8d",
