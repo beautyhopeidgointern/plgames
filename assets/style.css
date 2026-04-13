@@ -169,6 +169,33 @@ body {
   cursor: pointer;
 }
 
+.price-category {
+  margin-bottom: 14px;
+}
+
+.price-category:last-child {
+  margin-bottom: 0;
+}
+
+.price-category-title {
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.price-category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+@media (max-width: 360px) {
+  .price-category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .price-item.selected {
   border-color: #111;
   background: #eee;
