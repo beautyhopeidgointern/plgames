@@ -10,7 +10,7 @@ window.GAME_CATALOG = [
     slug: "hok",
     name: "Honor of Kings",
     icon: "HK",
-    logo: "https://link-logo-hok-kamu.png",
+    logo: "https://faqs.uwu.ai/assets/images/gallery03/b4861052_original.jpg?v=b41c8d46",
     description: "Price list Honor of Kings dengan format pesanan yang rapi."
   },
   {
@@ -26,5 +26,12 @@ window.GAME_CATALOG = [
     icon: "PM",
     logo: "https://faqs.uwu.ai/assets/images/gallery03/9e4e3029_original.jpg?v=be67950b",
     description: "Price list UC PUBG Mobile dengan tampilan yang rapi."
+  },
+  {
+    slug: "Genshin",
+    name: "Genshin Impact",
+    icon: "GI",
+    logo: "https://faqs.uwu.ai/assets/images/gallery03/5cdddd73_original.jpg?v=b7e71b8d",
+    description: "Top up diamond Free Fire cepat, simpel, dan mudah dipilih."
   }
 ];
