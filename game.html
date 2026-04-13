@@ -52,21 +52,32 @@
           </div>
         </div>
 
-        <div class="form-group">
-          <label for="note">Catatan</label>
-          <textarea id="note" rows="4" placeholder="Tambahkan catatan bila perlu"></textarea>
-        </div>
+        <div class="form-grid">
+  <div class="form-group">
+    <label for="quantity">Kuantitas</label>
+    <div class="qty-control">
+      <button type="button" id="qty-minus" class="qty-btn">-</button>
+      <input type="number" id="quantity" value="1" min="1" readonly />
+      <button type="button" id="qty-plus" class="qty-btn">+</button>
+    </div>
+  </div>
 
-        <div class="button-row">
-          <button type="button" id="copy-btn">Salin Pesanan</button>
-          <a href="#" id="contact-btn" class="contact-btn" target="_blank" rel="noopener noreferrer">Hubungi Admin</a>
-        </div>
+  <div class="form-group">
+    <label for="total-price">Total Harga</label>
+    <input type="text" id="total-price" readonly />
+  </div>
+</div>
 
-        <div class="form-group">
-          <label for="preview-order">Preview Pesanan</label>
-          <textarea id="preview-order" rows="10" readonly></textarea>
-        </div>
+<div class="button-row">
+  <button type="button" id="copy-btn">Salin Pesanan</button>
+  <a href="#" id="contact-btn" class="contact-btn" target="_blank" rel="noopener noreferrer">Hubungi Admin</a>
+</div>
 
+<div class="form-group">
+  <label for="preview-order">Preview Pesanan</label>
+  <textarea id="preview-order" rows="10" readonly></textarea>
+</div>
+        
         <div class="back-row">
           <a href="./index.html" class="back-link">← Kembali ke daftar game</a>
         </div>
