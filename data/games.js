@@ -33,5 +33,12 @@ window.GAME_CATALOG = [
     icon: "GI",
     logo: "https://faqs.uwu.ai/assets/images/gallery03/5cdddd73_original.jpg?v=b7e71b8d",
     description: "Genshin Impact Fast via UID. Khusus region Indonesia."
+  },
+  {
+    slug: "genshinmy",
+    name: "Genshin Impact",
+    icon: "GI",
+    logo: "https://faqs.uwu.ai/assets/images/gallery03/5cdddd73_original.jpg?v=b7e71b8d",
+    description: "Genshin Impact Fast via UID. Khusus region Malaysia."
   }
 ];
