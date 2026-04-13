@@ -122,55 +122,94 @@ function renderFields() {
   });
 }
 
+function createPriceCard(item) {
+  const card = document.createElement("div");
+  card.className = "price-item";
+  card.setAttribute("role", "button");
+  card.setAttribute("tabindex", "0");
+
+  const title = document.createElement("h3");
+  title.textContent = item.name;
+
+  const price = document.createElement("p");
+  price.className = "price";
+  price.textContent = item.price;
+
+  const selectItem = () => {
+    if (selectedProductEl) selectedProductEl.value = item.name;
+    if (selectedPriceEl) selectedPriceEl.value = item.price;
+    if (quantityEl) quantityEl.value = 1;
+
+    document.querySelectorAll(".price-item").forEach((el) => {
+      el.classList.remove("selected");
+    });
+    card.classList.add("selected");
+
+    updateTotalPrice();
+    updateWhatsappLink();
+
+    if (orderSection) {
+      orderSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  card.addEventListener("click", selectItem);
+
+  card.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      selectItem();
+    }
+  });
+
+  card.appendChild(title);
+  card.appendChild(price);
+
+  return card;
+}
+
 function renderPriceList() {
   if (!listEl || !gameData) return;
 
   listEl.innerHTML = "";
 
-  gameData.items.forEach((item) => {
-    const card = document.createElement("div");
-    card.className = "price-item";
-    card.setAttribute("role", "button");
-    card.setAttribute("tabindex", "0");
+  if (Array.isArray(gameData.categories) && gameData.categories.length) {
+    gameData.categories.forEach((category) => {
+      const section = document.createElement("div");
+      section.className = "price-category";
 
-    const title = document.createElement("h3");
-    title.textContent = item.name;
+      const heading = document.createElement("h3");
+      heading.className = "price-category-title";
+      heading.textContent = category.title || "Kategori";
 
-    const price = document.createElement("p");
-    price.className = "price";
-    price.textContent = item.price;
+      const grid = document.createElement("div");
+      grid.className = "price-category-grid";
 
-    const selectItem = () => {
-      if (selectedProductEl) selectedProductEl.value = item.name;
-      if (selectedPriceEl) selectedPriceEl.value = item.price;
-      if (quantityEl) quantityEl.value = 1;
-
-      document.querySelectorAll(".price-item").forEach((el) => {
-        el.classList.remove("selected");
+      (category.items || []).forEach((item) => {
+        grid.appendChild(createPriceCard(item));
       });
-      card.classList.add("selected");
 
-      updateTotalPrice();
-      updateWhatsappLink();
-
-      if (orderSection) {
-        orderSection.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    };
-
-    card.addEventListener("click", selectItem);
-
-    card.addEventListener("keydown", (event) => {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        selectItem();
-      }
+      section.appendChild(heading);
+      section.appendChild(grid);
+      listEl.appendChild(section);
     });
 
-    card.appendChild(title);
-    card.appendChild(price);
-    listEl.appendChild(card);
-  });
+    return;
+  }
+
+  if (Array.isArray(gameData.items) && gameData.items.length) {
+    const grid = document.createElement("div");
+    grid.className = "price-grid";
+
+    gameData.items.forEach((item) => {
+      grid.appendChild(createPriceCard(item));
+    });
+
+    listEl.appendChild(grid);
+    return;
+  }
+
+  listEl.innerHTML = `<div class="empty-state">Belum ada daftar harga untuk game ini.</div>`;
 }
 
 function buildOrderText() {
