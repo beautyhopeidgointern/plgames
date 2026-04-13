@@ -1,7 +1,7 @@
 window.GAME_CATALOG = [
   {
     slug: "mlid",
-    name: "Mobile Legends (ID)",
+    name: "MLBB (ID)",
     icon: "ML",
     logo: "https://faqs.uwu.ai/assets/images/gallery03/d50b090e_original.jpg?v=be67950b",
     description: "Mobile Legends Fast via ID dan server. Khusus region Indonesia."
