@@ -312,6 +312,10 @@ textarea {
 }
 
 /* BUTTONS */
+.contact-btn.full {
+  grid-column: 1 / -1;
+}
+
 .button-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
