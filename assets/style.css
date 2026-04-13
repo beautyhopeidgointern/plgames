@@ -213,18 +213,7 @@ label {
 }
 
 input,
-textarea {
-  width: 100%;
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  padding: 10px;
-  font-size: 12px;
-}
-
-textarea {
-  resize: vertical;
-}
-
+textarea,
 select {
   width: 100%;
   border: 1px solid var(--line);
@@ -233,6 +222,10 @@ select {
   font-size: 12px;
   background: #ffffff;
   color: var(--text);
+}
+
+textarea {
+  resize: vertical;
 }
 
 /* QUANTITY */
