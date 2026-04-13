@@ -231,13 +231,11 @@ body {
   transition: 0.15s ease;
 }
 
-.price-item button:hover,
 #copy-btn:hover,
 .contact-btn:hover {
   opacity: 0.92;
 }
 
-.price-item button,
 #copy-btn,
 .contact-btn {
   background: var(--button);
