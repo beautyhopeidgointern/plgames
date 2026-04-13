@@ -1,7 +1,7 @@
 window.GAME_CATALOG = [
   {
     slug: "mlid",
-    name: "MLBB (ID)",
+    name: "Mobile Legends (ID)",
     icon: "ML",
     logo: "https://faqs.uwu.ai/assets/images/gallery03/d50b090e_original.jpg?v=be67950b",
     description: "Mobile Legends Fast via ID dan server. Khusus region Indonesia."
@@ -32,7 +32,7 @@ window.GAME_CATALOG = [
     name: "PUBG Mobile",
     icon: "PM",
     logo: "https://faqs.uwu.ai/assets/images/gallery03/9e4e3029_original.jpg?v=be67950b",
-    description: "PUBG Mobile Fast via Player ID."
+    description: "PUBG Mobile Fast via Player ID. Region Indo/Global."
   },
   {
     slug: "genshinid",
