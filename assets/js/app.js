@@ -39,13 +39,43 @@ const listEl = document.getElementById("price-list");
 const fieldsEl = document.getElementById("dynamic-fields");
 const selectedProductEl = document.getElementById("selected-product");
 const selectedPriceEl = document.getElementById("selected-price");
+const totalPriceEl = document.getElementById("total-price");
+const quantityEl = document.getElementById("quantity");
+const qtyMinusBtn = document.getElementById("qty-minus");
+const qtyPlusBtn = document.getElementById("qty-plus");
 const previewEl = document.getElementById("preview-order");
 const copyBtn = document.getElementById("copy-btn");
 const contactBtn = document.getElementById("contact-btn");
 const orderSection = document.getElementById("order-section");
-const noteEl = document.getElementById("note");
 
 let gameData = null;
+
+function parseRupiah(value) {
+  if (!value) return 0;
+  return Number(String(value).replace(/[^\d]/g, "")) || 0;
+}
+
+function formatRupiah(value) {
+  return `Rp ${value.toLocaleString("id-ID")}`;
+}
+
+function getQuantity() {
+  const qty = Number(quantityEl.value) || 1;
+  return qty < 1 ? 1 : qty;
+}
+
+function getSelectedPriceNumber() {
+  return parseRupiah(selectedPriceEl.value);
+}
+
+function getTotalPriceNumber() {
+  return getSelectedPriceNumber() * getQuantity();
+}
+
+function updateTotalPrice() {
+  const total = getTotalPriceNumber();
+  totalPriceEl.value = total > 0 ? formatRupiah(total) : "-";
+}
 
 function createField(labelText, index) {
   const wrapper = document.createElement("div");
@@ -95,12 +125,14 @@ function renderPriceList() {
     const selectItem = () => {
       selectedProductEl.value = item.name;
       selectedPriceEl.value = item.price;
+      quantityEl.value = 1;
 
       document.querySelectorAll(".price-item").forEach((el) => {
         el.classList.remove("selected");
       });
       card.classList.add("selected");
 
+      updateTotalPrice();
       updatePreview();
       orderSection.scrollIntoView({ behavior: "smooth", block: "start" });
     };
@@ -132,14 +164,17 @@ function buildOrderText() {
   });
 
   lines.push(`Produk: ${selectedProductEl.value || "-"}`);
-  lines.push(`Harga: ${selectedPriceEl.value || "-"}`);
-  lines.push(`Catatan: ${noteEl.value.trim() || "-"}`);
+  lines.push(`Harga Satuan: ${selectedPriceEl.value || "-"}`);
+  lines.push(`Kuantitas: ${getQuantity()}`);
+  lines.push(`Total Harga: ${totalPriceEl.value || "-"}`);
 
   return lines.join("\n");
 }
 
 function updatePreview() {
   if (!gameData) return;
+
+  updateTotalPrice();
 
   const text = buildOrderText();
   previewEl.value = text;
@@ -148,7 +183,17 @@ function updatePreview() {
   contactBtn.href = `https://wa.me/${gameData.contact}?text=${encoded}`;
 }
 
-noteEl.addEventListener("input", updatePreview);
+qtyMinusBtn.addEventListener("click", () => {
+  const current = getQuantity();
+  quantityEl.value = current > 1 ? current - 1 : 1;
+  updatePreview();
+});
+
+qtyPlusBtn.addEventListener("click", () => {
+  const current = getQuantity();
+  quantityEl.value = current + 1;
+  updatePreview();
+});
 
 copyBtn.addEventListener("click", async () => {
   if (!gameData) return;
@@ -184,6 +229,12 @@ async function initGamePage() {
 
     renderFields();
     renderPriceList();
+
+    quantityEl.value = 1;
+    selectedProductEl.value = "";
+    selectedPriceEl.value = "";
+    totalPriceEl.value = "-";
+
     updatePreview();
   } catch (error) {
     titleEl.textContent = "Game tidak ditemukan";
@@ -193,6 +244,7 @@ async function initGamePage() {
     fieldsEl.innerHTML = "";
     selectedProductEl.value = "";
     selectedPriceEl.value = "";
+    totalPriceEl.value = "";
     previewEl.value = "";
     contactBtn.removeAttribute("href");
   }
