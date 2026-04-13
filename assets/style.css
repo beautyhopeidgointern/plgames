@@ -267,3 +267,17 @@ textarea {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* PAGE TRANSITION */
+body {
+  opacity: 1;
+  transition: opacity 0.22s ease;
+}
+
+body.page-leaving {
+  opacity: 0;
+}
+
+body.page-enter {
+  opacity: 0;
+}
