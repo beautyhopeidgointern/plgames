@@ -18,8 +18,9 @@ function getGameKey() {
 }
 
 const gameKey = getGameKey();
-const gameData = PRICE_LIST[gameKey] || PRICE_LIST["mobile-legends"];
 
+// ambil data dari file terpisah
+const gameData = window.PRICE_DATA;
 const titleEl = document.getElementById("game-title");
 const subtitleEl = document.getElementById("game-subtitle");
 const listEl = document.getElementById("price-list");
