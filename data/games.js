@@ -15,14 +15,14 @@ window.GAME_CATALOG = [
   },
   {
     slug: "ff",
-    name: "Free Fire",
+    name: "Free Fire (ID)",
     icon: "FF",
     logo: "https://faqs.uwu.ai/assets/images/gallery03/616a32a9_original.jpg?v=be67950b",
     description: "Free Fire Fast via UID. Khusus region Indonesia."
   },
   {
     slug: "ffmysg",
-    name: "Free Fire",
+    name: "Free Fire (MY/SG)",
     icon: "FF",
     logo: "https://faqs.uwu.ai/assets/images/gallery03/616a32a9_original.jpg?v=be67950b",
     description: "Free Fire Fast via UID. Khusus region Malaysia/Singapura."
@@ -36,14 +36,14 @@ window.GAME_CATALOG = [
   },
   {
     slug: "genshinid",
-    name: "Genshin Impact",
+    name: "Genshin Impact (ID)",
     icon: "GI",
     logo: "https://faqs.uwu.ai/assets/images/gallery03/5cdddd73_original.jpg?v=b7e71b8d",
     description: "Genshin Impact Fast via UID. Khusus region Indonesia."
   },
   {
     slug: "genshinmy",
-    name: "Genshin Impact",
+    name: "Genshin Impact (MY)",
     icon: "GI",
     logo: "https://faqs.uwu.ai/assets/images/gallery03/5cdddd73_original.jpg?v=b7e71b8d",
     description: "Genshin Impact Fast via UID. Khusus region Malaysia."
