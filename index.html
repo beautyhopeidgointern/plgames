@@ -72,6 +72,15 @@
     </section>
   </main>
 
-  <script src="./assets/js/app.js"></script>
+  <script>
+  const params = new URLSearchParams(window.location.search);
+  const game = params.get("game") || "mobile-legends";
+
+  const script = document.createElement("script");
+  script.src = `./data/${game}.js`;
+  document.body.appendChild(script);
+</script>
+
+<script src="./assets/js/app.js"></script>
 </body>
 </html>
