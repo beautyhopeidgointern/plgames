@@ -1,7 +1,7 @@
 window.PRICE_DATA = {
   title: "Mobile Legends (ID)",
   subtitle: "Proses otomatis via ID Server. Khusus region Indonesia.",
-  contact: "6281234567890",
+  contact: "6293197962700",
   formFields: ["User ID", "Server (tanpa tanda kurung)", "Nickname"],
   items: [
     { name: "86 Diamond", price: "Rp 20.000" },
