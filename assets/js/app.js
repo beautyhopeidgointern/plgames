@@ -44,7 +44,6 @@ const quantityEl = document.getElementById("quantity");
 const qtyMinusBtn = document.getElementById("qty-minus");
 const qtyPlusBtn = document.getElementById("qty-plus");
 const previewEl = document.getElementById("preview-order");
-const copyBtn = document.getElementById("copy-btn");
 const contactBtn = document.getElementById("contact-btn");
 const orderSection = document.getElementById("order-section");
 
@@ -164,9 +163,8 @@ function buildOrderText() {
   });
 
   lines.push(`Produk: ${selectedProductEl.value || "-"}`);
-  lines.push(`Harga Satuan: ${selectedPriceEl.value || "-"}`);
-  lines.push(`Kuantitas: ${getQuantity()}`);
-  lines.push(`Total Harga: ${totalPriceEl.value || "-"}`);
+  lines.push(`Jumlah: ${getQuantity()}`);
+  lines.push(`Total: ${totalPriceEl.value || "-"}`);
 
   return lines.join("\n");
 }
@@ -195,27 +193,6 @@ qtyPlusBtn.addEventListener("click", () => {
   updatePreview();
 });
 
-copyBtn.addEventListener("click", async () => {
-  if (!gameData) return;
-
-  const text = buildOrderText();
-
-  try {
-    await navigator.clipboard.writeText(text);
-    copyBtn.textContent = "Berhasil Disalin";
-    setTimeout(() => {
-      copyBtn.textContent = "Salin Pesanan";
-    }, 1500);
-  } catch (error) {
-    previewEl.focus();
-    previewEl.select();
-    document.execCommand("copy");
-    copyBtn.textContent = "Berhasil Disalin";
-    setTimeout(() => {
-      copyBtn.textContent = "Salin Pesanan";
-    }, 1500);
-  }
-});
 
 async function initGamePage() {
   const gameKey = getGameKey();
