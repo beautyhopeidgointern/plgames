@@ -1,7 +1,7 @@
 window.PRICE_DATA = {
   title: "Honor of Kings",
   subtitle: "Top Up Token Murah",
-  contact: "6281234567890",
+  contact: "6283197962700",
   formFields: ["Player ID", "Nickname"],
   items: [
     { name: "16 Tokens", price: "Rp 4.000" },
