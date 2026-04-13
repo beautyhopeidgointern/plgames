@@ -20,7 +20,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* 🔥 FIX TRANSISI */
+/* BODY */
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
@@ -38,42 +38,24 @@ body.page-leaving {
 /* CONTAINER */
 .container {
   width: min(100% - 16px, 480px);
-  margin: 0 auto;
+  margin: 4px auto 0;
+}
+
+/* HEADER */
+.site-header {
+  padding: 4px 0 6px;
 }
 
 /* HERO */
-.site-header {
-  padding: 10px 0;
-}
-
 .hero {
   background: var(--bg-soft);
   border: 1px solid var(--line);
   border-radius: 16px;
-  padding: 14px;
+  padding: 10px 12px;
+  line-height: 1.3; /* 🔥 BIAR TEXT RAPET */
 }
 
-.badge {
-  font-size: 10px;
-  font-weight: 700;
-  background: var(--accent-soft);
-  border: 1px solid var(--line);
-  padding: 4px 8px;
-  border-radius: 999px;
-}
-
-.hero h1 {
-  margin: 6px 0 4px;
-  font-size: 14px;
-}
-
-.hero-text {
-  font-size: 12px;
-  color: var(--muted);
-}
-
-.brand-title {
-  margin: 0;
+/* BRAND */
 .brand-title {
   margin: 0 0 2px;
   font-size: 14px;
@@ -87,6 +69,7 @@ body.page-leaving {
   color: var(--muted);
 }
 
+/* CONTACT */
 .contact-info p {
   margin: 0 0 2px;
   font-size: 11px;
@@ -98,13 +81,9 @@ body.page-leaving {
   font-size: 11px;
 }
 
-.section-title {
-  margin: 6px 0 4px;
-  font-size: 13px;
-}
-
-.hero {
-  padding-bottom: 10px;
+.contact-links a {
+  color: var(--text);
+  text-decoration: underline;
 }
 
 /* CARD */
@@ -112,33 +91,33 @@ body.page-leaving {
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: 16px;
-  padding: 14px;
-  margin-bottom: 12px;
+  padding: 12px;
+  margin-bottom: 8px;
 }
 
 .section-head h2 {
   margin: 0;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .section-head p {
-  margin: 4px 0 10px;
-  font-size: 12px;
+  margin: 4px 0 8px;
+  font-size: 11px;
   color: var(--muted);
 }
 
-/* HOMEPAGE */
+/* GAME GRID */
 .game-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  gap: 8px;
 }
 
 .game-card {
   background: var(--card-2);
   border: 1px solid var(--line);
   border-radius: 14px;
-  padding: 12px;
+  padding: 10px;
   cursor: pointer;
 
   -webkit-tap-highlight-color: transparent;
@@ -157,8 +136,8 @@ body.page-leaving {
 }
 
 .game-icon {
-  width: 34px;
-  height: 34px;
+  width: 32px;
+  height: 32px;
   border-radius: 10px;
   background: var(--accent-soft);
   border: 1px solid var(--line);
@@ -172,12 +151,6 @@ body.page-leaving {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  pointer-events: none;
-}
-
-.game-icon span {
-  font-size: 11px;
-  font-weight: bold;
 }
 
 .game-card h3 {
@@ -188,7 +161,7 @@ body.page-leaving {
 .game-card p {
   font-size: 11px;
   color: var(--muted);
-  margin: 6px 0;
+  margin: 4px 0;
 }
 
 .open-text {
@@ -198,11 +171,11 @@ body.page-leaving {
 
 /* PRICE CATEGORY */
 .price-category {
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 
 .price-category-title {
-  margin: 0 0 8px;
+  margin: 0 0 6px;
   font-size: 12px;
   font-weight: 700;
 }
@@ -210,15 +183,15 @@ body.page-leaving {
 .price-category-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
+  gap: 6px;
 }
 
 /* PRICE ITEM */
 .price-item {
   background: var(--card-2);
   border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 8px;
+  border-radius: 10px;
+  padding: 6px;
   cursor: pointer;
 }
 
@@ -229,21 +202,21 @@ body.page-leaving {
 
 .price-item h3 {
   margin: 0;
-  font-size: 11px;
+  font-size: 10px;
 }
 
 .price-item .price {
-  font-size: 10px;
+  font-size: 9px;
   color: var(--muted);
 }
 
 /* FORM */
 .form-group {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 label {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: bold;
 }
 
@@ -253,8 +226,8 @@ select {
   width: 100%;
   border: 1px solid var(--line);
   border-radius: 10px;
-  padding: 10px;
-  font-size: 12px;
+  padding: 8px;
+  font-size: 11px;
   background: #ffffff;
   color: var(--text);
 }
@@ -266,35 +239,30 @@ textarea {
 /* QUANTITY */
 .qty-control {
   display: grid;
-  grid-template-columns: 40px 1fr 40px;
-  gap: 8px;
+  grid-template-columns: 36px 1fr 36px;
+  gap: 6px;
   align-items: center;
 }
 
 .qty-btn {
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   border-radius: 10px;
   border: none;
   background: var(--button);
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
-  cursor: pointer;
-}
-
-.qty-btn:active {
-  transform: scale(0.95);
 }
 
 #quantity {
-  height: 40px;
+  height: 36px;
   text-align: center;
 }
 
 /* BUTTON */
 .button-row {
-  margin: 12px 0;
+  margin: 10px 0;
 }
 
 .contact-btn {
@@ -302,23 +270,24 @@ textarea {
   width: 100%;
   background: var(--button);
   color: var(--button-text);
-  padding: 12px;
+  padding: 10px;
   border-radius: 12px;
   text-align: center;
   font-weight: bold;
   text-decoration: none;
+  font-size: 12px;
 }
 
 /* BACK */
 .back-link {
-  font-size: 11px;
+  font-size: 10px;
   text-decoration: none;
   color: var(--text);
 }
 
 /* EMPTY */
 .empty-state {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--muted);
 }
 
