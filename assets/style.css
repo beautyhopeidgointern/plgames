@@ -20,12 +20,19 @@ html {
   scroll-behavior: smooth;
 }
 
+/* 🔥 FIX TRANSISI */
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   background: var(--bg);
   color: var(--text);
   font-size: 12px;
+  opacity: 1;
+  transition: opacity 0.18s ease;
+}
+
+body.page-leaving {
+  opacity: 0;
 }
 
 /* CONTAINER */
@@ -85,7 +92,7 @@ body {
   color: var(--muted);
 }
 
-/* HOMEPAGE GRID */
+/* HOMEPAGE */
 .game-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -154,34 +161,15 @@ body {
   font-weight: bold;
 }
 
-/* PRICE GRID */
-.price-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-}
-
-.price-item {
-  background: var(--card-2);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 8px;
-  cursor: pointer;
-}
-
+/* PRICE CATEGORY */
 .price-category {
   margin-bottom: 14px;
-}
-
-.price-category:last-child {
-  margin-bottom: 0;
 }
 
 .price-category-title {
   margin: 0 0 8px;
   font-size: 12px;
   font-weight: 700;
-  color: var(--text);
 }
 
 .price-category-grid {
@@ -190,10 +178,13 @@ body {
   gap: 8px;
 }
 
-@media (max-width: 360px) {
-  .price-category-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+/* PRICE ITEM */
+.price-item {
+  background: var(--card-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 8px;
+  cursor: pointer;
 }
 
 .price-item.selected {
@@ -203,11 +194,11 @@ body {
 
 .price-item h3 {
   margin: 0;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .price-item .price {
-  font-size: 11px;
+  font-size: 10px;
   color: var(--muted);
 }
 
@@ -234,7 +225,7 @@ textarea {
   resize: vertical;
 }
 
-/* QUANTITY FIX */
+/* QUANTITY */
 .qty-control {
   display: grid;
   grid-template-columns: 40px 1fr 40px;
@@ -251,6 +242,11 @@ textarea {
   color: white;
   font-size: 16px;
   font-weight: bold;
+  cursor: pointer;
+}
+
+.qty-btn:active {
+  transform: scale(0.95);
 }
 
 #quantity {
@@ -290,21 +286,7 @@ textarea {
 
 /* RESPONSIVE */
 @media (max-width: 360px) {
-  .price-grid {
+  .price-category-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-}
-
-/* PAGE TRANSITION */
-body {
-  opacity: 1;
-  transition: opacity 0.22s ease;
-}
-
-body.page-leaving {
-  opacity: 0;
-}
-
-body.page-enter {
-  opacity: 0;
 }
