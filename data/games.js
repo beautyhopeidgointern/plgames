@@ -3,7 +3,7 @@ window.GAME_CATALOG = [
     slug: "mlid",
     name: "Mobile Legends",
     icon: "ML",
-    logo: "https://link-logo-ml-kamu.png",
+    logo: "https://faqs.uwu.ai/assets/images/gallery03/d50b090e_original.jpg?v=be67950b",
     description: "Top up diamond Mobile Legends dengan pilihan nominal lengkap."
   },
   {
@@ -17,14 +17,14 @@ window.GAME_CATALOG = [
     slug: "ff",
     name: "Free Fire",
     icon: "FF",
-    logo: "https://link-logo-ff-kamu.png",
+    logo: "https://faqs.uwu.ai/assets/images/gallery03/616a32a9_original.jpg?v=be67950b",
     description: "Top up diamond Free Fire cepat, simpel, dan mudah dipilih."
   },
   {
     slug: "pubgm",
     name: "PUBG Mobile",
     icon: "PM",
-    logo: "https://link-logo-pubgm-kamu.png",
+    logo: "https://faqs.uwu.ai/assets/images/gallery03/9e4e3029_original.jpg?v=be67950b",
     description: "Price list UC PUBG Mobile dengan tampilan yang rapi."
   }
 ];
