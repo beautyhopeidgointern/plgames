@@ -9,7 +9,11 @@ function escapeHtml(value) {
 }
 
 function goToGame(slug) {
-  window.location.href = `./game.html?game=${encodeURIComponent(slug)}`;
+  document.body.classList.add("page-leaving");
+
+  setTimeout(() => {
+    window.location.href = `./game.html?game=${encodeURIComponent(slug)}`;
+  }, 180);
 }
 
 function renderHomeGames() {
@@ -64,4 +68,12 @@ function renderHomeGames() {
   });
 }
 
-renderHomeGames();
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.classList.add("page-enter");
+
+  requestAnimationFrame(() => {
+    document.body.classList.remove("page-enter");
+  });
+
+  renderHomeGames();
+});
