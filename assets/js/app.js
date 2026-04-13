@@ -1,11 +1,3 @@
-document.addEventListener("DOMContentLoaded", () => {
-  document.body.classList.add("page-enter");
-
-  requestAnimationFrame(() => {
-    document.body.classList.remove("page-enter");
-  });
-});
-
 function getGameKey() {
   const params = new URLSearchParams(window.location.search);
   return params.get("game") || "";
@@ -193,7 +185,6 @@ function renderPriceList() {
       section.appendChild(grid);
       listEl.appendChild(section);
     });
-
     return;
   }
 
