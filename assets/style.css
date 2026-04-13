@@ -72,6 +72,44 @@ body.page-leaving {
   color: var(--muted);
 }
 
+.brand-title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.tagline {
+  margin: 4px 0 8px;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.contact-info p {
+  margin: 0;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.contact-links {
+  font-size: 11px;
+  margin-bottom: 10px;
+}
+
+.contact-links a {
+  color: var(--text);
+  text-decoration: underline;
+}
+
+.section-title {
+  margin: 6px 0 4px;
+  font-size: 13px;
+}
+
+.hero {
+  padding-bottom: 10px;
+}
+
 /* CARD */
 .card {
   background: var(--card);
