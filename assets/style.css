@@ -74,31 +74,28 @@ body.page-leaving {
 
 .brand-title {
   margin: 0;
+.brand-title {
+  margin: 0 0 2px;
   font-size: 14px;
   font-weight: bold;
   letter-spacing: 1px;
 }
 
 .tagline {
-  margin: 4px 0 8px;
+  margin: 0 0 4px;
   font-size: 11px;
   color: var(--muted);
 }
 
 .contact-info p {
-  margin: 0;
+  margin: 0 0 2px;
   font-size: 11px;
   font-weight: bold;
 }
 
 .contact-links {
+  margin: 0;
   font-size: 11px;
-  margin-bottom: 10px;
-}
-
-.contact-links a {
-  color: var(--text);
-  text-decoration: underline;
 }
 
 .section-title {
