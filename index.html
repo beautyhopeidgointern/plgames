@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Price List Game</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 id="game-title">Price List Game</h1>
+      <p id="game-subtitle">Pilih nominal lalu isi form pemesanan</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Daftar Harga</h2>
+      <div id="price-list" class="price-grid"></div>
+    </section>
+
+    <section class="card" id="order-section">
+      <h2>Form Pesanan</h2>
+      <form id="order-form" onsubmit="return false;">
+        <div id="dynamic-fields"></div>
+
+        <label>Produk Dipilih</label>
+        <input type="text" id="selected-product" readonly />
+
+        <label>Harga</label>
+        <input type="text" id="selected-price" readonly />
+
+        <label>Catatan</label>
+        <textarea id="note" rows="4" placeholder="Tambahkan catatan bila perlu"></textarea>
+
+        <div class="button-row">
+          <button type="button" id="copy-btn">Salin Pesanan</button>
+          <a href="#" id="contact-btn" class="contact-btn" target="_blank">Hubungi Admin</a>
+        </div>
+
+        <label>Preview Pesanan</label>
+        <textarea id="preview-order" rows="8" readonly></textarea>
+      </form>
+    </section>
+  </main>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
