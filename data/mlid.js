@@ -1,6 +1,6 @@
 window.PRICE_DATA = {
   title: "Mobile Legends (ID)",
-  subtitle: "Top Up Diamond Murah dan Aman",
+  subtitle: "Proses fast otomatis 1-10 menit. Via User ID dan Server. Pastikan UID dan Server tujuan sudah benar. Khusus region indonesia.",
   contact: "6283197962700",
   formFields: ["User ID", "Server", "Nickname"],
   categories: [
