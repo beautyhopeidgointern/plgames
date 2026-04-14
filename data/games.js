@@ -55,6 +55,13 @@ window.GAME_CATALOG = [
     logo: "https://faqs.uwu.ai/assets/images/gallery03/d50b090e_original.jpg?v=be67950b",
     description: "Mobile Legends Fast via ID dan server. Khusus region Rusia."
   },
+    {
+    slug: "mlbr",
+    name: "Mobile Legends (BR)",
+    icon: "ML",
+    logo: "https://faqs.uwu.ai/assets/images/gallery03/d50b090e_original.jpg?v=be67950b",
+    description: "Mobile Legends Fast via ID dan server. Khusus region Brazil."
+  },
   {
     slug: "mlglobal",
     name: "Mobile Legends (Global)",
