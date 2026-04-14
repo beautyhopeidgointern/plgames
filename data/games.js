@@ -6,6 +6,20 @@ window.GAME_CATALOG = [
     logo: "https://faqs.uwu.ai/assets/images/gallery03/2ead52f1_original.jpg?v=b41c8d46",
     description: "Robuc Pilog. Proses manual setiap 10:00-22:00 WIB."
   },
+  {
+    slug: "ff",
+    name: "Free Fire (ID)",
+    icon: "FF",
+    logo: "https://faqs.uwu.ai/assets/images/gallery03/616a32a9_original.jpg?v=be67950b",
+    description: "Free Fire Fast via UID. Khusus region Indonesia."
+  },
+  {
+    slug: "ffmysg",
+    name: "Free Fire (MY/SG)",
+    icon: "FF",
+    logo: "https://faqs.uwu.ai/assets/images/gallery03/616a32a9_original.jpg?v=be67950b",
+    description: "Free Fire Fast via UID. Khusus region Malaysia/Singapura."
+  },
     {
     slug: "genshinid",
     name: "Genshin Impact (ID)",
@@ -75,20 +89,6 @@ window.GAME_CATALOG = [
     icon: "HK",
     logo: "https://faqs.uwu.ai/assets/images/gallery03/b4861052_original.jpg?v=b41c8d46",
     description: "Honor of Kings Fast via UID. Khusus region Indonesia."
-  },
-  {
-    slug: "ff",
-    name: "Free Fire (ID)",
-    icon: "FF",
-    logo: "https://faqs.uwu.ai/assets/images/gallery03/616a32a9_original.jpg?v=be67950b",
-    description: "Free Fire Fast via UID. Khusus region Indonesia."
-  },
-  {
-    slug: "ffmysg",
-    name: "Free Fire (MY/SG)",
-    icon: "FF",
-    logo: "https://faqs.uwu.ai/assets/images/gallery03/616a32a9_original.jpg?v=be67950b",
-    description: "Free Fire Fast via UID. Khusus region Malaysia/Singapura."
   },
   {
     slug: "pubgm",
