@@ -1,6 +1,6 @@
 window.GAME_CATALOG = [
   {
-    slug: "rbxvlg.js",
+    slug: "rbxvlg",
     name: "Robuc Pilog",
     icon: "RBX",
     logo: "https://faqs.uwu.ai/assets/images/gallery03/2ead52f1_original.jpg?v=b41c8d46",
