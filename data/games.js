@@ -1,5 +1,12 @@
 window.GAME_CATALOG = [
   {
+    slug: "rbxvlg.js",
+    name: "Robuc Pilog",
+    icon: "RBX",
+    logo: "https://faqs.uwu.ai/assets/images/gallery03/2ead52f1_original.jpg?v=b41c8d46",
+    description: "Robuc Pilog. Proses manual setiap 10:00-22:00 WIB."
+  },
+  {
     slug: "mlid",
     name: "Mobile Legends (ID)",
     icon: "ML",
