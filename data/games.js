@@ -62,6 +62,13 @@ window.GAME_CATALOG = [
     logo: "https://faqs.uwu.ai/assets/images/gallery03/d50b090e_original.jpg?v=be67950b",
     description: "Mobile Legends Fast via ID dan server. Khusus region Singapura."
   },
+    {
+    slug: "mlth",
+    name: "Mobile Legends (TH)",
+    icon: "ML",
+    logo: "https://faqs.uwu.ai/assets/images/gallery03/d50b090e_original.jpg?v=be67950b",
+    description: "Mobile Legends Fast via ID dan server. Khusus region Thailand."
+  },
   {
     slug: "mlru",
     name: "Mobile Legends (RU)",
