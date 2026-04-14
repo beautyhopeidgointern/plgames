@@ -6,6 +6,20 @@ window.GAME_CATALOG = [
     logo: "https://faqs.uwu.ai/assets/images/gallery03/2ead52f1_original.jpg?v=b41c8d46",
     description: "Robuc Pilog. Proses manual setiap 10:00-22:00 WIB."
   },
+    {
+    slug: "genshinid",
+    name: "Genshin Impact (ID)",
+    icon: "GI",
+    logo: "https://faqs.uwu.ai/assets/images/gallery03/5cdddd73_original.jpg?v=b7e71b8d",
+    description: "Genshin Impact Fast via UID. Khusus region Indonesia."
+  },
+  {
+    slug: "genshinmy",
+    name: "Genshin Impact (MY)",
+    icon: "GI",
+    logo: "https://faqs.uwu.ai/assets/images/gallery03/5cdddd73_original.jpg?v=b7e71b8d",
+    description: "Genshin Impact Fast via UID. Khusus region Malaysia."
+  },
   {
     slug: "mlid",
     name: "Mobile Legends (ID)",
@@ -32,7 +46,14 @@ window.GAME_CATALOG = [
     name: "Mobile Legends (SG)",
     icon: "ML",
     logo: "https://faqs.uwu.ai/assets/images/gallery03/d50b090e_original.jpg?v=be67950b",
-    description: "Mobile Legends Fast via ID dan server. Khusus region Indonesia."
+    description: "Mobile Legends Fast via ID dan server. Khusus region Singapura."
+  },
+  {
+    slug: "mlru",
+    name: "Mobile Legends (RU)",
+    icon: "ML",
+    logo: "https://faqs.uwu.ai/assets/images/gallery03/d50b090e_original.jpg?v=be67950b",
+    description: "Mobile Legends Fast via ID dan server. Khusus region Rusia."
   },
   {
     slug: "mlglobal",
@@ -68,20 +89,6 @@ window.GAME_CATALOG = [
     icon: "PM",
     logo: "https://faqs.uwu.ai/assets/images/gallery03/9e4e3029_original.jpg?v=be67950b",
     description: "PUBG Mobile Fast via Player ID. Region Indo/Global."
-  },
-  {
-    slug: "genshinid",
-    name: "Genshin Impact (ID)",
-    icon: "GI",
-    logo: "https://faqs.uwu.ai/assets/images/gallery03/5cdddd73_original.jpg?v=b7e71b8d",
-    description: "Genshin Impact Fast via UID. Khusus region Indonesia."
-  },
-  {
-    slug: "genshinmy",
-    name: "Genshin Impact (MY)",
-    icon: "GI",
-    logo: "https://faqs.uwu.ai/assets/images/gallery03/5cdddd73_original.jpg?v=b7e71b8d",
-    description: "Genshin Impact Fast via UID. Khusus region Malaysia."
   },
   {
     slug: "ffmaxid",
