@@ -28,6 +28,13 @@ window.GAME_CATALOG = [
     description: "Mobile Legends Fast via ID dan server. Khusus region Filipina."
   },
   {
+    slug: "mlbbsg",
+    name: "Mobile Legends (SG)",
+    icon: "ML",
+    logo: "https://faqs.uwu.ai/assets/images/gallery03/d50b090e_original.jpg?v=be67950b",
+    description: "Mobile Legends Fast via ID dan server. Khusus region Indonesia."
+  },
+  {
     slug: "hok",
     name: "Honor of Kings",
     icon: "HK",
