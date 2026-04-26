@@ -473,3 +473,14 @@ textarea {
   border-color: #e53935 !important;
   background: #fff5f5 !important;
 }
+
+.field-error-text {
+  display: none;
+  margin-top: 4px;
+  font-size: 10px;
+  color: #e53935;
+}
+
+.form-group.show-error .field-error-text {
+  display: block;
+}
