@@ -100,6 +100,15 @@ function normalizeField(field) {
   };
 }
 
+function clearFieldError(input) {
+  const wrapper = input.closest(".form-group");
+
+  if (String(input.value || "").trim()) {
+    input.classList.remove("field-error");
+    wrapper?.classList.remove("show-error");
+  }
+}
+
 function createField(field, index) {
   const config = normalizeField(field);
 
@@ -139,18 +148,23 @@ function createField(field, index) {
     input.required = true;
   }
 
+  const errorText = document.createElement("small");
+  errorText.className = "field-error-text";
+  errorText.textContent = `${config.label} wajib diisi`;
+
   input.addEventListener("input", () => {
-    input.classList.remove("field-error");
+    clearFieldError(input);
     updateWhatsappLink();
   });
 
   input.addEventListener("change", () => {
-    input.classList.remove("field-error");
+    clearFieldError(input);
     updateWhatsappLink();
   });
 
   wrapper.appendChild(label);
   wrapper.appendChild(input);
+  wrapper.appendChild(errorText);
 
   return wrapper;
 }
@@ -262,7 +276,7 @@ function buildOrderText() {
   lines.push("");
 
   inputs.forEach((input) => {
-    lines.push(`${input.dataset.label}: ${input.value.trim() || "-"}`);
+    lines.push(`${input.dataset.label}: ${String(input.value || "").trim() || "-"}`);
   });
 
   lines.push(`Produk: ${selectedProductEl?.value || "-"}`);
@@ -279,25 +293,30 @@ function validateOrderForm() {
 
   inputs.forEach((input) => {
     const value = String(input.value || "").trim();
+    const wrapper = input.closest(".form-group");
 
     if (!value) {
       input.classList.add("field-error");
+      wrapper?.classList.add("show-error");
 
       if (!firstEmptyField) {
         firstEmptyField = input;
       }
     } else {
       input.classList.remove("field-error");
+      wrapper?.classList.remove("show-error");
     }
   });
 
   if (!selectedProductEl?.value) {
-    alert("Pilih produk terlebih dahulu.");
+    if (listEl) {
+      listEl.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
     return false;
   }
 
   if (firstEmptyField) {
-    alert("Kolom wajib diisi. Lengkapi semua data pesanan terlebih dahulu.");
     firstEmptyField.focus();
     return false;
   }
