@@ -468,3 +468,8 @@ textarea {
 .order-action-row .contact-btn span {
   opacity: 0.9;
 }
+
+.field-error {
+  border-color: #e53935 !important;
+  background: #fff5f5 !important;
+}
