@@ -47,10 +47,11 @@ const contactBtn = document.getElementById("contact-btn");
 const orderNowBtn = document.getElementById("order-now-btn");
 const orderModal = document.getElementById("order-modal");
 const modalClose = document.getElementById("modal-close");
-const copyOrderBtn = document.getElementById("copy-order-btn");
+const copyBtn = document.getElementById("copy-order-btn");
 const orderSection = document.getElementById("order-section");
 const previewEl = document.getElementById("preview-order");
 const backHomeLink = document.getElementById("back-home-link");
+const backTop = document.getElementById("back-top");
 
 let gameData = null;
 
@@ -106,38 +107,32 @@ function createField(field, index) {
   wrapper.className = "form-group";
 
   const label = document.createElement("label");
-  label.setAttribute("for", `field-${index}`);
   label.textContent = config.label;
 
   let input;
 
   if (config.type === "select") {
     input = document.createElement("select");
-    input.id = `field-${index}`;
-    input.dataset.label = config.label;
 
     const defaultOption = document.createElement("option");
     defaultOption.value = "";
     defaultOption.textContent = `Pilih ${config.label}`;
     input.appendChild(defaultOption);
 
-    config.options.forEach((optionValue) => {
+    config.options.forEach((opt) => {
       const option = document.createElement("option");
-      option.value = optionValue;
-      option.textContent = optionValue;
+      option.value = opt;
+      option.textContent = opt;
       input.appendChild(option);
     });
   } else {
     input = document.createElement("input");
     input.type = "text";
-    input.id = `field-${index}`;
-    input.dataset.label = config.label;
     input.placeholder = config.placeholder;
-    input.autocomplete = "off";
   }
 
+  input.dataset.label = config.label;
   input.addEventListener("input", updateWhatsappLink);
-  input.addEventListener("change", updateWhatsappLink);
 
   wrapper.appendChild(label);
   wrapper.appendChild(input);
@@ -146,263 +141,156 @@ function createField(field, index) {
 }
 
 function renderFields() {
-  if (!fieldsEl || !gameData) return;
-
   fieldsEl.innerHTML = "";
-  (gameData.formFields || []).forEach((field, index) => {
-    fieldsEl.appendChild(createField(field, index));
+  (gameData.formFields || []).forEach((field, i) => {
+    fieldsEl.appendChild(createField(field, i));
   });
 }
 
 function createPriceCard(item) {
   const card = document.createElement("div");
   card.className = "price-item";
-  card.setAttribute("role", "button");
-  card.setAttribute("tabindex", "0");
 
-  const title = document.createElement("h3");
-  title.textContent = item.name;
+  card.innerHTML = `
+    <h3>${item.name}</h3>
+    <p class="price">${item.price}</p>
+  `;
 
-  const price = document.createElement("p");
-  price.className = "price";
-  price.textContent = item.price;
+  card.onclick = () => {
+    selectedProductEl.value = item.name;
+    selectedPriceEl.value = item.price;
+    quantityEl.value = 1;
 
-  const selectItem = () => {
-    if (selectedProductEl) selectedProductEl.value = item.name;
-    if (selectedPriceEl) selectedPriceEl.value = item.price;
-    if (quantityEl) quantityEl.value = 1;
-
-    document.querySelectorAll(".price-item").forEach((el) => {
-      el.classList.remove("selected");
-    });
-
+    document.querySelectorAll(".price-item").forEach(el => el.classList.remove("selected"));
     card.classList.add("selected");
 
     updateTotalPrice();
     updateWhatsappLink();
 
-    if (orderSection) {
-      orderSection.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    orderSection.scrollIntoView({ behavior: "smooth" });
   };
-
-  card.addEventListener("click", selectItem);
-  card.addEventListener("keydown", (event) => {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      selectItem();
-    }
-  });
-
-  card.appendChild(title);
-  card.appendChild(price);
 
   return card;
 }
 
 function renderPriceList() {
-  if (!listEl || !gameData) return;
-
   listEl.innerHTML = "";
 
-  if (Array.isArray(gameData.categories) && gameData.categories.length) {
-    gameData.categories.forEach((category) => {
+  if (gameData.categories) {
+    gameData.categories.forEach(cat => {
       const section = document.createElement("div");
-      section.className = "price-category";
 
-      const heading = document.createElement("h3");
-      heading.className = "price-category-title";
-      heading.textContent = category.title || "Kategori";
+      section.innerHTML = `<h3>${cat.title}</h3>`;
 
       const grid = document.createElement("div");
       grid.className = "price-category-grid";
 
-      (category.items || []).forEach((item) => {
-        grid.appendChild(createPriceCard(item));
-      });
+      cat.items.forEach(item => grid.appendChild(createPriceCard(item)));
 
-      section.appendChild(heading);
       section.appendChild(grid);
       listEl.appendChild(section);
     });
-    return;
   }
-
-  if (Array.isArray(gameData.items) && gameData.items.length) {
-    const grid = document.createElement("div");
-    grid.className = "price-grid";
-
-    gameData.items.forEach((item) => {
-      grid.appendChild(createPriceCard(item));
-    });
-
-    listEl.appendChild(grid);
-    return;
-  }
-
-  listEl.innerHTML = `<div class="empty-state">Belum ada daftar harga untuk game ini.</div>`;
 }
 
 function buildOrderText() {
-  const inputs = fieldsEl ? fieldsEl.querySelectorAll("input, select") : [];
+  const inputs = fieldsEl.querySelectorAll("input, select");
   const lines = [];
 
   lines.push(`Pesanan ${gameData.title}`);
   lines.push("");
 
-  inputs.forEach((input) => {
-    lines.push(`${input.dataset.label}: ${input.value.trim() || "-"}`);
+  inputs.forEach(input => {
+    lines.push(`${input.dataset.label}: ${input.value || "-"}`);
   });
 
-  lines.push(`Produk: ${selectedProductEl?.value || "-"}`);
-  lines.push(`Harga Satuan: ${selectedPriceEl?.value || "-"}`);
+  lines.push(`Produk: ${selectedProductEl.value || "-"}`);
+  lines.push(`Harga Satuan: ${selectedPriceEl.value || "-"}`);
   lines.push(`Kuantitas: ${getQuantity()}`);
-  lines.push(`Total Harga: ${totalPriceEl?.value || "-"}`);
+  lines.push(`Total Harga: ${totalPriceEl.value || "-"}`);
 
   return lines.join("\n");
 }
 
 function updateWhatsappLink() {
-  if (!gameData || !contactBtn) return;
+  if (!gameData) return;
 
   updateTotalPrice();
 
   const text = buildOrderText();
-
-  if (previewEl) {
-    previewEl.value = text;
-  }
+  previewEl.value = text;
 
   const encoded = encodeURIComponent(text);
   contactBtn.href = `https://wa.me/${gameData.contact}?text=${encoded}`;
 }
 
-function openOrderModal() {
+/* MODAL */
+function openModal() {
   updateWhatsappLink();
-
-  if (orderModal) {
-    orderModal.classList.add("active");
-  }
+  orderModal.classList.add("active");
 }
 
-function closeOrderModal() {
-  if (orderModal) {
-    orderModal.classList.remove("active");
-  }
+function closeModal() {
+  orderModal.classList.remove("active");
 }
 
-if (orderNowBtn) {
-  orderNowBtn.addEventListener("click", openOrderModal);
-}
+orderNowBtn.onclick = openModal;
+modalClose.onclick = closeModal;
 
-if (modalClose) {
-  modalClose.addEventListener("click", closeOrderModal);
-}
+orderModal.onclick = (e) => {
+  if (e.target === orderModal) closeModal();
+};
 
-if (orderModal) {
-  orderModal.addEventListener("click", (event) => {
-    if (event.target === orderModal) {
-      closeOrderModal();
-    }
-  });
-}
+/* COPY */
+copyBtn.onclick = () => {
+  navigator.clipboard.writeText(previewEl.value);
+  copyBtn.textContent = "Copied";
+  setTimeout(() => copyBtn.textContent = "Copy", 1000);
+};
 
-if (copyOrderBtn) {
-  copyOrderBtn.addEventListener("click", async () => {
-    const text = previewEl?.value || buildOrderText();
+/* QTY */
+qtyMinusBtn.onclick = () => {
+  quantityEl.value = Math.max(1, getQuantity() - 1);
+  updateWhatsappLink();
+};
 
-    try {
-      await navigator.clipboard.writeText(text);
-      copyOrderBtn.textContent = "Copied";
-      setTimeout(() => {
-        copyOrderBtn.textContent = "Copy";
-      }, 1200);
-    } catch (error) {
-      if (previewEl) {
-        previewEl.select();
-        document.execCommand("copy");
-      }
+qtyPlusBtn.onclick = () => {
+  quantityEl.value = getQuantity() + 1;
+  updateWhatsappLink();
+};
 
-      copyOrderBtn.textContent = "Copied";
-      setTimeout(() => {
-        copyOrderBtn.textContent = "Copy";
-      }, 1200);
-    }
-  });
-}
-
-if (qtyMinusBtn) {
-  qtyMinusBtn.addEventListener("click", () => {
-    const current = getQuantity();
-    if (quantityEl) quantityEl.value = current > 1 ? current - 1 : 1;
-    updateWhatsappLink();
-  });
-}
-
-if (qtyPlusBtn) {
-  qtyPlusBtn.addEventListener("click", () => {
-    const current = getQuantity();
-    if (quantityEl) quantityEl.value = current + 1;
-    updateWhatsappLink();
-  });
-}
-
-if (quantityEl) {
-  quantityEl.addEventListener("input", () => {
-    if (Number(quantityEl.value) < 1 || !quantityEl.value) {
-      quantityEl.value = 1;
-    }
-    updateWhatsappLink();
-  });
-}
-
+/* BACK */
 if (backHomeLink) {
-  backHomeLink.addEventListener("click", (event) => {
-    event.preventDefault();
+  backHomeLink.onclick = (e) => {
+    e.preventDefault();
     document.body.classList.add("page-leaving");
-
-    setTimeout(() => {
-      window.location.href = backHomeLink.href;
-    }, 180);
-  });
+    setTimeout(() => window.location.href = backHomeLink.href, 180);
+  };
 }
 
+if (backTop) {
+  backTop.onclick = (e) => {
+    e.preventDefault();
+    document.body.classList.add("page-leaving");
+    setTimeout(() => window.location.href = backTop.href, 180);
+  };
+}
+
+/* INIT */
 async function initGamePage() {
-  const gameKey = getGameKey();
-
   try {
-    gameData = await loadGameData(gameKey);
+    gameData = await loadGameData(getGameKey());
 
-    if (titleEl) titleEl.textContent = gameData.title;
-    if (subtitleEl) subtitleEl.textContent = gameData.subtitle;
+    titleEl.textContent = gameData.title;
+    subtitleEl.textContent = gameData.subtitle;
 
     renderFields();
     renderPriceList();
 
-    if (selectedProductEl) selectedProductEl.value = "";
-    if (selectedPriceEl) selectedPriceEl.value = "";
-    if (quantityEl) quantityEl.value = 1;
-    if (totalPriceEl) totalPriceEl.value = "-";
-
     updateWhatsappLink();
-  } catch (error) {
-    if (titleEl) titleEl.textContent = "Game tidak ditemukan";
-    if (subtitleEl) subtitleEl.textContent = "Data game belum tersedia atau nama file salah.";
-
-    if (listEl) {
-      listEl.innerHTML = `<div class="empty-state">Data price list untuk game ini belum ada.</div>`;
-    }
-
-    if (fieldsEl) fieldsEl.innerHTML = "";
-    if (selectedProductEl) selectedProductEl.value = "";
-    if (selectedPriceEl) selectedPriceEl.value = "";
-    if (quantityEl) quantityEl.value = 1;
-    if (totalPriceEl) totalPriceEl.value = "";
-    if (previewEl) previewEl.value = "";
-
-    if (contactBtn) {
-      contactBtn.removeAttribute("href");
-    }
+  } catch (err) {
+    titleEl.textContent = "Game tidak ditemukan";
+    listEl.innerHTML = `<div class="empty-state">Data tidak ada</div>`;
   }
 }
 
