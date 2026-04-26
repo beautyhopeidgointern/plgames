@@ -33,7 +33,7 @@
       <div class="section-head">
         <div>
           <h2>Form Pesanan</h2>
-          <p>Isi data dengan benar lalu kirim lewat WhatsApp.</p>
+          <p>Isi data dengan benar lalu klik Order Sekarang.</p>
         </div>
       </div>
 
@@ -69,20 +69,9 @@
         </div>
 
         <div class="button-row">
-          <a
-            href="#"
-            id="contact-btn"
-            class="contact-btn"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Kirim via WhatsApp
-          </a>
-        </div>
-
-        <div class="form-group">
-          <label for="preview-order">Preview Pesanan</label>
-          <textarea id="preview-order" rows="8" readonly></textarea>
+          <button type="button" id="order-now-btn" class="contact-btn">
+            Order Sekarang
+          </button>
         </div>
 
         <div class="back-row">
@@ -91,6 +80,49 @@
       </form>
     </section>
   </main>
+
+  <div class="order-modal" id="order-modal">
+    <div class="order-modal-box">
+      <button type="button" class="modal-close" id="modal-close">×</button>
+
+      <h2>Ringkasan Order</h2>
+
+      <div class="preview-box">
+        <textarea id="preview-order" rows="8" readonly></textarea>
+        <button type="button" id="copy-order-btn" class="copy-btn">Copy</button>
+      </div>
+
+      <p class="order-note">
+        Khusus order via Telegram, klik tombol Copy di pojok kanan data order,
+        lalu klik Kirim Order via Telegram. Klik Start jika belum pernah start bot,
+        kemudian tempel form pesanan ke bot dan kirim.
+      </p>
+
+      <div class="order-action-row">
+        <a
+          href="#"
+          id="contact-btn"
+          class="contact-btn"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Kirim Order<br />
+          <span>via WhatsApp (6283197962700)</span>
+        </a>
+
+        <a
+          href="https://t.me/topupgrambot"
+          id="telegram-btn"
+          class="contact-btn telegram-btn"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Kirim Order<br />
+          <span>via Telegram (t.me/topupgrambot)</span>
+        </a>
+      </div>
+    </div>
+  </div>
 
   <script src="./assets/js/app.js"></script>
 </body>
