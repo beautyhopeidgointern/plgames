@@ -1,6 +1,6 @@
 window.PRICE_DATA = {
   title: "Robux Pilog",
-  subtitle: "Proses manual pia log, open setiap 10:00 - 22:00 WIB. Estimasi 1-15 menit, maksimal 60 menit.",
+  subtitle: "Proses manual pia log, open setiap 10:00 - 22:00 WIB. Estimasi 1-15 menit, maksimal 60 menit. Jika tidak ada backup code, bisa menggunakan kode email atau verisikasi lainnya, form bisa di isi — saja.",
   contact: "6283197962700",
   formFields: ["Username (@)", "Pw", "Backup (jika ada)"],
   categories: [
