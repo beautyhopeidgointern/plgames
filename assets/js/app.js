@@ -13,9 +13,7 @@ function loadGameData(gameKey) {
     window.PRICE_DATA = null;
 
     const oldScript = document.getElementById("dynamic-game-data");
-    if (oldScript) {
-      oldScript.remove();
-    }
+    if (oldScript) oldScript.remove();
 
     const script = document.createElement("script");
     script.id = "dynamic-game-data";
@@ -29,9 +27,7 @@ function loadGameData(gameKey) {
       }
     };
 
-    script.onerror = () => {
-      reject(new Error("File data game tidak ditemukan"));
-    };
+    script.onerror = () => reject(new Error("File data game tidak ditemukan"));
 
     document.body.appendChild(script);
   });
@@ -48,6 +44,10 @@ const quantityEl = document.getElementById("quantity");
 const qtyMinusBtn = document.getElementById("qty-minus");
 const qtyPlusBtn = document.getElementById("qty-plus");
 const contactBtn = document.getElementById("contact-btn");
+const orderNowBtn = document.getElementById("order-now-btn");
+const orderModal = document.getElementById("order-modal");
+const modalClose = document.getElementById("modal-close");
+const copyOrderBtn = document.getElementById("copy-order-btn");
 const orderSection = document.getElementById("order-section");
 const previewEl = document.getElementById("preview-order");
 const backHomeLink = document.getElementById("back-home-link");
@@ -175,6 +175,7 @@ function createPriceCard(item) {
     document.querySelectorAll(".price-item").forEach((el) => {
       el.classList.remove("selected");
     });
+
     card.classList.add("selected");
 
     updateTotalPrice();
@@ -276,6 +277,60 @@ function updateWhatsappLink() {
   contactBtn.href = `https://wa.me/${gameData.contact}?text=${encoded}`;
 }
 
+function openOrderModal() {
+  updateWhatsappLink();
+
+  if (orderModal) {
+    orderModal.classList.add("active");
+  }
+}
+
+function closeOrderModal() {
+  if (orderModal) {
+    orderModal.classList.remove("active");
+  }
+}
+
+if (orderNowBtn) {
+  orderNowBtn.addEventListener("click", openOrderModal);
+}
+
+if (modalClose) {
+  modalClose.addEventListener("click", closeOrderModal);
+}
+
+if (orderModal) {
+  orderModal.addEventListener("click", (event) => {
+    if (event.target === orderModal) {
+      closeOrderModal();
+    }
+  });
+}
+
+if (copyOrderBtn) {
+  copyOrderBtn.addEventListener("click", async () => {
+    const text = previewEl?.value || buildOrderText();
+
+    try {
+      await navigator.clipboard.writeText(text);
+      copyOrderBtn.textContent = "Copied";
+      setTimeout(() => {
+        copyOrderBtn.textContent = "Copy";
+      }, 1200);
+    } catch (error) {
+      if (previewEl) {
+        previewEl.select();
+        document.execCommand("copy");
+      }
+
+      copyOrderBtn.textContent = "Copied";
+      setTimeout(() => {
+        copyOrderBtn.textContent = "Copy";
+      }, 1200);
+    }
+  });
+}
+
 if (qtyMinusBtn) {
   qtyMinusBtn.addEventListener("click", () => {
     const current = getQuantity();
@@ -338,10 +393,7 @@ async function initGamePage() {
       listEl.innerHTML = `<div class="empty-state">Data price list untuk game ini belum ada.</div>`;
     }
 
-    if (fieldsEl) {
-      fieldsEl.innerHTML = "";
-    }
-
+    if (fieldsEl) fieldsEl.innerHTML = "";
     if (selectedProductEl) selectedProductEl.value = "";
     if (selectedPriceEl) selectedPriceEl.value = "";
     if (quantityEl) quantityEl.value = 1;
