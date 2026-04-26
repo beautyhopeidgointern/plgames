@@ -388,3 +388,90 @@ textarea {
 .telegram-btn {
   background: #229ED9;
 }
+
+/* HERO FIX */
+.hero {
+  position: relative;
+}
+
+/* BACK TOP */
+.back-top {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--text);
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 4px 8px;
+}
+
+/* MODAL */
+.order-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.order-modal.active {
+  display: flex;
+}
+
+.order-modal-box {
+  width: min(100% - 20px, 420px);
+  background: #fff;
+  border-radius: 16px;
+  padding: 14px;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  border: none;
+  background: transparent;
+  font-size: 18px;
+}
+
+/* PREVIEW */
+.preview-box {
+  position: relative;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: black;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 10px;
+}
+
+/* NOTE */
+.order-note {
+  font-size: 10px;
+  color: var(--muted);
+  margin: 8px 0;
+}
+
+/* BUTTON */
+.order-action-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.telegram-btn {
+  background: #229ED9;
+}
