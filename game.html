@@ -10,6 +10,8 @@
   <header class="site-header">
     <div class="container">
       <section class="hero">
+        <a href="./index.html" class="back-top" id="back-top">←</a>
+
         <span class="badge">PRICE LIST</span>
         <h1 id="game-title">Loading...</h1>
         <p id="game-subtitle" class="hero-text">Sedang memuat data game...</p>
@@ -37,34 +39,34 @@
         </div>
       </div>
 
-      <form id="order-form" onsubmit="return false;">
-        <div id="dynamic-fields" class="form-grid"></div>
+      <form onsubmit="return false;">
+        <div id="dynamic-fields"></div>
 
         <div class="form-grid">
           <div class="form-group">
-            <label for="selected-product">Produk Dipilih</label>
-            <input type="text" id="selected-product" readonly />
+            <label>Produk Dipilih</label>
+            <input id="selected-product" readonly />
           </div>
 
           <div class="form-group">
-            <label for="selected-price">Harga Satuan</label>
-            <input type="text" id="selected-price" readonly />
+            <label>Harga Satuan</label>
+            <input id="selected-price" readonly />
           </div>
         </div>
 
         <div class="form-grid">
           <div class="form-group">
-            <label for="quantity">Kuantitas</label>
+            <label>Kuantitas</label>
             <div class="qty-control">
               <button type="button" id="qty-minus" class="qty-btn">-</button>
-              <input type="number" id="quantity" value="1" min="1" readonly />
+              <input id="quantity" value="1" readonly />
               <button type="button" id="qty-plus" class="qty-btn">+</button>
             </div>
           </div>
 
           <div class="form-group">
-            <label for="total-price">Total Harga</label>
-            <input type="text" id="total-price" readonly />
+            <label>Total Harga</label>
+            <input id="total-price" readonly />
           </div>
         </div>
 
@@ -81,15 +83,16 @@
     </section>
   </main>
 
+  <!-- MODAL -->
   <div class="order-modal" id="order-modal">
     <div class="order-modal-box">
-      <button type="button" class="modal-close" id="modal-close">×</button>
+      <button class="modal-close" id="modal-close">×</button>
 
       <h2>Ringkasan Order</h2>
 
       <div class="preview-box">
         <textarea id="preview-order" rows="8" readonly></textarea>
-        <button type="button" id="copy-order-btn" class="copy-btn">Copy</button>
+        <button id="copy-order-btn" class="copy-btn">Copy</button>
       </div>
 
       <p class="order-note">
@@ -102,24 +105,12 @@
       </p>
 
       <div class="order-action-row">
-        <a
-          href="#"
-          id="contact-btn"
-          class="contact-btn"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a id="contact-btn" class="contact-btn" target="_blank">
           Kirim Order<br />
           <span>via WhatsApp</span>
         </a>
 
-        <a
-          href="https://t.me/topupgrambot"
-          id="telegram-btn"
-          class="contact-btn telegram-btn"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href="https://t.me/topupgrambot" class="contact-btn telegram-btn" target="_blank">
           Kirim Order<br />
           <span>via Telegram</span>
         </a>
