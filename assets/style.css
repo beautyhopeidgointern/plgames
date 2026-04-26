@@ -16,6 +16,11 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+/* BODY */
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
@@ -30,40 +35,55 @@ body.page-leaving {
   opacity: 0;
 }
 
+/* CONTAINER */
 .container {
   width: min(100% - 16px, 480px);
   margin: 4px auto 0;
 }
 
+/* HEADER */
+.site-header {
+  padding: 4px 0 6px;
+}
+
 /* HERO */
 .hero {
-  position: relative;
-  text-align: center;
   background: var(--bg-soft);
   border: 1px solid var(--line);
   border-radius: 16px;
-  padding: 12px;
+  padding: 10px 12px;
+  line-height: 1.3; /* 🔥 BIAR TEXT RAPET */
 }
 
-.back-top {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-
-  width: 34px;
-  height: 34px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background: white;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-
+/* BRAND */
+.brand-title {
+  margin: 0 0 2px;
   font-size: 14px;
-  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.tagline {
+  margin: 0 0 4px;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* CONTACT */
+.contact-info p {
+  margin: 0 0 2px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.contact-links {
+  margin: 0;
+  font-size: 11px;
+}
+
+.contact-links a {
   color: var(--text);
+  text-decoration: underline;
 }
 
 /* CARD */
@@ -86,13 +106,87 @@ body.page-leaving {
   color: var(--muted);
 }
 
-/* PRICE */
+/* GAME GRID */
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.game-card {
+  background: var(--card-2);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 10px;
+  cursor: pointer;
+
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+
+.game-card:hover {
+  box-shadow: var(--shadow);
+}
+
+.game-card-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.game-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: var(--accent-soft);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.game-card h3 {
+  margin: 0;
+  font-size: 12px;
+}
+
+.game-card p {
+  font-size: 11px;
+  color: var(--muted);
+  margin: 4px 0;
+}
+
+.open-text {
+  font-size: 11px;
+  font-weight: bold;
+}
+
+/* PRICE CATEGORY */
+.price-category {
+  margin-bottom: 10px;
+}
+
+.price-category-title {
+  margin: 0 0 6px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
 .price-category-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 6px;
 }
 
+/* PRICE ITEM */
 .price-item {
   background: var(--card-2);
   border: 1px solid var(--line);
@@ -121,29 +215,56 @@ body.page-leaving {
   margin-bottom: 8px;
 }
 
-input, textarea, select {
+label {
+  font-size: 10px;
+  font-weight: bold;
+}
+
+input,
+textarea,
+select {
   width: 100%;
   border: 1px solid var(--line);
   border-radius: 10px;
   padding: 8px;
   font-size: 11px;
+  background: #ffffff;
+  color: var(--text);
 }
 
-/* QTY */
+textarea {
+  resize: vertical;
+}
+
+/* QUANTITY */
 .qty-control {
   display: grid;
   grid-template-columns: 36px 1fr 36px;
   gap: 6px;
+  align-items: center;
 }
 
 .qty-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: none;
   background: var(--button);
   color: white;
-  border: none;
-  border-radius: 10px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#quantity {
+  height: 36px;
+  text-align: center;
 }
 
 /* BUTTON */
+.button-row {
+  margin: 10px 0;
+}
+
 .contact-btn {
   display: block;
   width: 100%;
@@ -154,6 +275,27 @@ input, textarea, select {
   text-align: center;
   font-weight: bold;
   text-decoration: none;
+  font-size: 12px;
+}
+
+/* BACK */
+.back-link {
+  font-size: 10px;
+  text-decoration: none;
+  color: var(--text);
+}
+
+/* EMPTY */
+.empty-state {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* RESPONSIVE */
+@media (max-width: 360px) {
+  .price-category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* MODAL */
@@ -164,6 +306,7 @@ input, textarea, select {
   display: none;
   align-items: center;
   justify-content: center;
+  z-index: 999;
 }
 
 .order-modal.active {
@@ -172,7 +315,7 @@ input, textarea, select {
 
 .order-modal-box {
   width: min(100% - 20px, 420px);
-  background: white;
+  background: #fff;
   border-radius: 16px;
   padding: 14px;
   position: relative;
@@ -180,50 +323,148 @@ input, textarea, select {
 
 .modal-close {
   position: absolute;
-  right: 10px;
   top: 6px;
-  font-size: 18px;
+  right: 10px;
   border: none;
-  background: none;
+  background: transparent;
+  font-size: 18px;
+  cursor: pointer;
 }
 
 /* PREVIEW */
 .preview-box {
   position: relative;
+  margin-bottom: 8px;
+}
+
+.preview-box textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 12px;
+  font-size: 11px;
 }
 
 .copy-btn {
   position: absolute;
   top: 6px;
   right: 6px;
-  background: black;
-  color: white;
   border: none;
+  background: var(--button);
+  color: white;
+  font-size: 10px;
   padding: 4px 8px;
   border-radius: 8px;
-  font-size: 10px;
 }
 
+/* NOTE */
 .order-note {
   font-size: 10px;
   color: var(--muted);
-  margin: 8px 0;
+  margin-bottom: 10px;
+  line-height: 1.4;
 }
 
-/* ACTION */
+/* ACTION BUTTON */
 .order-action-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 8px;
 }
 
+.order-action-row .contact-btn {
+  font-size: 11px;
+  padding: 10px 6px;
+  text-align: center;
+}
+
+.order-action-row span {
+  font-size: 10px;
+  font-weight: normal;
+  display: block;
+  margin-top: 2px;
+}
+
+/* TELEGRAM STYLE */
 .telegram-btn {
   background: #229ED9;
 }
 
-/* RESPONSIVE */
-@media (max-width: 360px) {
-  .price-category-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+/* FIX HERO DETAIL PAGE */
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 18px 14px;
+}
+
+/* BACK TOP BUTTON */
+.back-top {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+
+  color: var(--text);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: bold;
+
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+/* BIAR BADGE GA KETABRAK TOMBOL */
+.hero .badge {
+  display: block;
+  margin-bottom: 10px;
+  padding-left: 34px;
+  padding-right: 34px;
+}
+
+/* RAPihin TITLE */
+.hero h1 {
+  margin: 6px 0 10px;
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+/* RAPihin SUBTITLE */
+.hero-text {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+/* MODAL BIAR LEBIH RAPI */
+.order-modal-box h2 {
+  margin: 0 0 10px;
+  font-size: 20px;
+}
+
+.preview-box textarea {
+  min-height: 150px;
+  padding-top: 12px;
+  padding-right: 64px;
+}
+
+.order-note {
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.order-action-row .contact-btn {
+  border: none;
+  cursor: pointer;
+}
+
+.order-action-row .contact-btn span {
+  opacity: 0.9;
 }
