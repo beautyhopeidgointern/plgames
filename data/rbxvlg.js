@@ -44,15 +44,18 @@ window.PRICE_DATA = {
 {
   title: "Premium (1 Bulan)",
   items: [
-    { name: "450 Robux + Prem", price: "Rp 74.500" },
-    { name: "1000 Robux + Prem", price: "Rp 149.000" },
-    { name: "1550 Robux + Prem", price: "Rp 223.500" },
-    { name: "2200 Robux + Prem", price: "Rp 298.000" },
-    { name: "2750 Robux + Prem", price: "Rp 372.500" },
-    { name: "3300 Robux + Prem", price: "Rp 447.000" },
-    { name: "3850 Robux + Prem", price: "Rp 521.500" },
-    { name: "4400 Robux + Prem", price: "Rp 596.000" },
-    { name: "4950 Robux + Prem", price: "Rp 670.500" },
-    { name: "5500 Robux + Prem", price: "Rp 745.000" }
-  ]
-}
+           { name: "450 Robux + Prem", price: "Rp 74.500" },
+           { name: "1000 Robux + Prem", price: "Rp 149.000" },
+           { name: "1550 Robux + Prem", price: "Rp 223.500" },
+           { name: "2200 Robux + Prem", price: "Rp 298.000" },
+           { name: "2750 Robux + Prem", price: "Rp 372.500" },
+           { name: "3300 Robux + Prem", price: "Rp 447.000" },
+           { name: "3850 Robux + Prem", price: "Rp 521.500" },
+           { name: "4400 Robux + Prem", price: "Rp 596.000" },
+           { name: "4950 Robux + Prem", price: "Rp 670.500" },
+           { name: "5500 Robux + Prem", price: "Rp 745.000" }
+         ]
+        }
+      ]
+    };
+      
