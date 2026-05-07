@@ -14,33 +14,18 @@ window.PRICE_DATA = {
     {
       title: "Monthly Membership",
       items: [
-        { name: "Welkin Moon", price: "Rp 66.500" },
-        { name: "Welkin Moon (×2)", price: "Rp 133.000" },
-        { name: "Welkin Moon (×3)", price: "Rp 199.500" },
-        { name: "Welkin Moon (×4)", price: "Rp 266.000" },
-        { name: "Welkin Moon (×5)", price: "Rp 332.500" }
+        { name: "Blessing Welkin Moon", price: "Rp 71.138" }
       ]
     },
     {
       title: "Genesis Crystal",
       items: [
-        { name: "60 GC", price: "Rp 15.000" },
-        { name: "330 (300+30) GC", price: "Rp 66.500" },
-        { name: "1090 (980+110) GC", price: "Rp 205.000" },
-        { name: "2240 (1980+260) GC", price: "Rp 399.000" },
-        { name: "3880 (3280+600) GC", price: "Rp 652.500" },
-        { name: "8080 (6480+1600) GC", price: "Rp 1.330.000" }
-      ]
-    },
-    {
-      title: "Chronal Nexus",
-      items: [
-        { name: "60 Chronal Nexus", price: "Rp 15.000" },
-        { name: "330 (300+30) Chronal Nexus", price: "Rp 66.500" },
-        { name: "1090 (980+110) Chronal Nexus", price: "Rp 205.000" },
-        { name: "2240 (1980+260) Chronal Nexus", price: "Rp 399.000" },
-        { name: "3880 (3280+600) Chronal Nexus", price: "Rp 652.500" },
-        { name: "8080 (6480+1600) Chronal Nexus", price: "Rp 1.330.000" }
+        { name: "60 Crystals", price: "Rp 15.418" },
+        { name: "300+30 Crystals", price: "Rp 71.138" },
+        { name: "980+110 Crystals", price: "Rp 221.182" },
+        { name: "1980+260 Crystals", price: "Rp 419.491" },
+        { name: "3280+600 Crystals", price: "Rp 700.106" },
+        { name: "6480+1600 Crystals", price: "Rp 1.403.337" }
       ]
     }
   ]
