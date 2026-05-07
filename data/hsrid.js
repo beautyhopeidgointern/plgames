@@ -14,18 +14,18 @@ window.PRICE_DATA = {
     {
       title: "Membership",
       items: [
-        { name: "Express Supply Pass", price: "Rp 64.000" }
+        { name: "Express Supply Pass", price: "Rp 70.572" }
       ]
     },
     {
       title: "Oneiric Shard",
       items: [
-        { name: "60 Oneiric Shard", price: "Rp 15.000" },
-        { name: "330 (300+30) Oneiric Shard", price: "Rp 64.000" },
-        { name: "1090 (980+110) Oneiric Shard", price: "Rp 194.500" },
-        { name: "2240 (1980+260) Oneiric Shard", price: "Rp 382.000" },
-        { name: "3880 (3280+600) Oneiric Shard", price: "Rp 625.000" },
-        { name: "8080 (6480+1600) Oneiric Shard", price: "Rp 1.252.000" }
+        { name: "60 Oneiric Shard", price: "Rp 13.184" },
+        { name: "300+30 Oneiric Shard", price: "Rp 70.572" },
+        { name: "980+110 Oneiric Shard", price: "Rp 195.881" },
+        { name: "1980+260 Oneiric Shard", price: "Rp 418.652" },
+        { name: "3280 + 600 Oneiric Shard", price: "Rp 698.101" },
+        { name: "6480 + 1600 Oneiric Shard", price: "Rp 1.213.802" }
       ]
     }
   ]
