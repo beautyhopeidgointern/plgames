@@ -14,18 +14,18 @@ window.PRICE_DATA = {
     {
       title: "Monthly Membership",
       items: [
-        { name: "Welkin Moon", price: "Rp 73.213" }
+        { name: "Welkin Moon", price: "Rp 00" }
       ]
     },
     {
       title: "Genesis Crystal",
       items: [
-        { name: "60 GC", price: "Rp 15.091" },
-        { name: "330 (300+30) GC", price: "Rp 73.140" },
-        { name: "1090 (980+110) GC", price: "Rp 216.753" },
-        { name: "2240 (1980+260) GC", price: "Rp 461.440" },
-        { name: "3880 (3280+600) GC", price: "Rp 702.990" },
-        { name: "8080 (6480+1600) GC", price: "Rp 1.423.450" }
+        { name: "60 GC", price: "Rp 000" },
+        { name: "330 (300+30) GC", price: "Rp 000" },
+        { name: "1090 (980+110) GC", price: "Rp 000" },
+        { name: "2240 (1980+260) GC", price: "Rp 000" },
+        { name: "3880 (3280+600) GC", price: "Rp 000" },
+        { name: "8080 (6480+1600) GC", price: "Rp 000" }
       ]
     },
   ]
