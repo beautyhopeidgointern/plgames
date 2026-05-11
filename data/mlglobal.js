@@ -7,59 +7,62 @@ window.PRICE_DATA = {
     {
       title: "First Topup",
       items: [
-        { name: "50 Diamonds + 50 Diamonds (1x Purchase)", price: "Rp 14.093" },
-        { name: "150 Diamonds + 150 Diamonds (1x Purchase)", price: "Rp 42.243" },
-        { name: "250 Diamonds + 250 Diamonds (1x Purchase)", price: "Rp 67.695" },
-        { name: "500 Diamonds + 500 Diamonds (1x Purchase)", price: "Rp 139.118" }
+        { name: "50 Diamonds + 50 Diamonds (1x Purchase)", price: "Rp 14.098" },
+        { name: "150 Diamonds + 150 Diamonds (1x Purchase)", price: "Rp 41.317" },
+        { name: "250 + 250 Diamonds (1x Purchase)", price: "Rp 66.267" },
+        { name: "500 Diamonds + 500 Diamonds (1x Purchase)", price: "Rp 135.402" }
       ]
     },
     {
       title: "Passes & Bundle",
       items: [
-        { name: "Elite Bundle (1x seminggu)", price: "Rp 13.860" },
-        { name: "Weekly Diamond Pass", price: "Rp 27.477" },
-        { name: "Monthly Epic Bundle", price: "Rp 69.272" },
-        { name: "Twilight Pass", price: "Rp 142.411" }
+        { name: "Weekly Elite Bundle (1x seminggu)", price: "Rp 13.708" },
+        { name: "Weekly Diamond Pass", price: "Rp 27.105" },
+        { name: "Monthly Epic Bundle", price: "Rp 66.920" },
+        { name: "Twilight Pass", price: "Rp 144.198" }
       ]
     },
     {
       title: "Diamonds",
       items: [
-        { name: "5 Diamonds", price: "Rp 1.421" },
-        { name: "11 Diamonds", price: "Rp 2.838" },
-        { name: "22 Diamonds", price: "Rp 5.826" },
-        { name: "56 Diamonds", price: "Rp 14.470" },
-        { name: "86 Diamonds (78 + 8 Bonus)", price: "Rp 21.718" },
-        { name: "112 Diamonds", price: "Rp 30.193" },
-        { name: "172 Diamonds", price: "Rp 43.123" },
-        { name: "223 Diamonds", price: "Rp 60.210" },
-        { name: "257 Diamonds (234 + 23 Bonus)", price: "Rp 64.642" },
-
-        { name: "336 Diamonds", price: "Rp 91.295" },
-        { name: "344 Diamonds", price: "Rp 86.956" },
-        { name: "429 Diamonds", price: "Rp 106.000" },
-
-        { name: "514 Diamonds", price: "Rp 126.732" },
-        { name: "570 Diamonds", price: "Rp 150.316" },
-        { name: "600 Diamonds", price: "Rp 148.262" },
-        { name: "706 Diamonds", price: "Rp 171.011" },
-        { name: "878 Diamonds", price: "Rp 212.907" },
-        { name: "963 Diamonds", price: "Rp 232.580" },
-        { name: "1050 Diamonds", price: "Rp 254.795" },
-        { name: "1163 Diamonds", price: "Rp 301.965" },
-        { name: "1220 Diamonds", price: "Rp 296.698" },
-        { name: "1412 Diamonds", price: "Rp 337.756" },
-
-        { name: "1669 Diamonds (1484 + 185 Bonus)", price: "Rp 401.075" },
-        { name: "2195 Diamonds", price: "Rp 518.283" },
-        { name: "2398 Diamonds", price: "Rp 604.343" },
-        { name: "2539 Diamonds (2172 + 367 Bonus)", price: "Rp 594.794" },
-        { name: "2901 Diamonds", price: "Rp 686.271" },
-        { name: "3688 Diamonds", price: "Rp 857.094" },
-        { name: "4394 Diamonds (3724 + 670 Bonus)", price: "Rp 1.020.780" },
-        { name: "5532 Diamonds (4649 + 883 Bonus)", price: "Rp 1.281.919" },
-        { name: "6238 Diamonds (5274 + 964 Bonus)", price: "Rp 1.452.935" },
-        { name: "7727 Diamonds (6509 + 1218 Bonus)", price: "Rp 1.791.550" }
+        { name: "5 Diamonds", price: "Rp 1.840" },
+        { name: "11 Diamonds", price: "Rp 3.173" },
+        { name: "22 Diamonds", price: "Rp 5.839" },
+        { name: "56 Diamonds", price: "Rp 13.981" },
+        { name: "86 (78+8) Diamonds", price: "Rp 22.157" },
+        { name: "112 Diamonds", price: "Rp 29.194" },
+        { name: "172 (156+16) Diamonds", price: "Rp 43.433" },
+        { name: "223 Diamonds", price: "Rp 57.846" },
+        { name: "257 (234+23) Diamonds", price: "Rp 64.438" },
+        { name: "336 Diamonds", price: "Rp 88.513" },
+        { name: "344 (312+32) Diamonds", price: "Rp 86.999" },
+        { name: "429 (390+39) Diamonds", price: "Rp 108.014" },
+        { name: "514 (468+46) Diamonds", price: "Rp 128.245" },
+        { name: "570 Diamonds", price: "Rp 145.643" },
+        { name: "600 (546+54) Diamonds", price: "Rp 149.742" },
+        { name: "706 (625+81) Diamonds", price: "Rp 172.321" },
+        { name: "878 (781+97) Diamonds", price: "Rp 215.682" },
+        { name: "963 (859+104) Diamonds", price: "Rp 236.750" },
+        { name: "1050 (937+113) Diamonds", price: "Rp 258.106" },
+        { name: "1163 Diamonds", price: "Rp 291.354" },
+        { name: "1220 (1093+127) Diamonds", price: "Rp 297.285" },
+        { name: "1412 (1250+162) Diamonds", price: "Rp 342.488" },
+        { name: "1669 (1484+185) Diamonds", price: "Rp 401.975" },
+        { name: "2195 (1860+335) Diamonds", price: "Rp 509.183" },
+        { name: "2398 Diamonds", price: "Rp 574.766" },
+        { name: "2539 (2172+367) Diamonds", price: "Rp 589.900" },
+        { name: "2901 (2485+416) Diamonds", price: "Rp 674.281" },
+        { name: "3688 (3099+589) Diamonds", price: "Rp 846.834" },
+        { name: "4394 (3724+670) Diamonds", price: "Rp 1.011.799" },
+        { name: "5532 (4649+883) Diamonds", price: "Rp 1.279.123" },
+        { name: "6042 Diamonds", price: "Rp 1.438.554" },
+        { name: "6238 (5274+964) Diamonds", price: "Rp 1.448.108" },
+        { name: "7727 (6509+1218) Diamonds", price: "Rp 1.777.756" },
+        { name: "9288 (7740+1548) Diamonds", price: "Rp 2.124.049" },
+        { name: "12976 (10839+2137) Diamonds", price: "Rp 2.955.999" },
+        { name: "14820 (12389+2431) Diamonds", price: "Rp 3.386.137" },
+        { name: "18576 (15480+3096) Diamonds", price: "Rp 4.226.861" },
+        { name: "27864 (23220+4644) Diamonds", price: "Rp 6.340.291" }
       ]
     }
   ]
