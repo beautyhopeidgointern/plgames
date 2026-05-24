@@ -36,10 +36,12 @@ window.PRICE_DATA = {
     {
       title: "GAMG MEMBERSHIP",
       items: [
-        { name: "Paket Weekly (Junior + 60 HD)", price: "Rp 24.000" },
-        { name: "Paket Monthly (Full + 60 HD)", price: "Rp 64.000" },
-        { name: "Only Membership (2x Junior 7D)", price: "Rp 16.000" },
-        { name: "Only Membership (1x Full 30D)", price: "Rp 48.000" }
+        { name: "Paket Weekly (1x GAMG Junior + 60 HD)", price: "Rp 24.000" },
+        { name: "Paket Monthly (1x GAMG Full + 60 HD)", price: "Rp 64.000" },
+        { name: "2x GAMG Junior (Weekly)", price: "Rp 16.000" },
+        { name: "3x GAMG Junior (Weekly)", price: "Rp 24.000" },
+        { name: "1x GAMG Full (Monthly)", price: "Rp 48.000" },
+        { name: "2x GAMG Full (Monthly)", price: "Rp 96.000" },
       ]
     }
   ]
