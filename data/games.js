@@ -6,6 +6,13 @@ window.GAME_CATALOG = [
     logo: "https://faqs.uwu.ai/assets/images/gallery03/2ead52f1_original.jpg?v=b41c8d46",
     description: "Robuc Pilog. Proses manual setiap 10:00-22:00 WIB."
   },
+    {
+    slug: "hatopia",
+    name: "Heartopia Vilog",
+    icon: "HTP",
+    logo: "https://faqs.uwu.ai/assets/images/gallery03/2ead52f1_original.jpg?v=b41c8d46",
+    description: "Hatopia vilog. Proses manual setiap 10:00-22:00 WIB."
+  },
   {
     slug: "ff",
     name: "Free Fire (ID)",
