@@ -10,7 +10,7 @@ window.GAME_CATALOG = [
     slug: "hatopia",
     name: "Heartopia Vilog",
     icon: "HTP",
-    logo: "https://faqs.uwu.ai/assets/images/gallery03/935eee0d_original.jpg?v=5701f9c5,
+    logo: "https://faqs.uwu.ai/assets/images/gallery03/935eee0d_original.jpg?v=5701f9c5",
     description: "Hatopia vilog. Proses manual setiap 10:00-22:00 WIB."
   },
   {
