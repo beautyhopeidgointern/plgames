@@ -49,4 +49,4 @@ window.PRICE_DATA = {
       ]
     }
   ]
-}
+};
