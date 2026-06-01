@@ -44,8 +44,8 @@ window.PRICE_DATA = {
     {
       title: "Roblox Plus (1 Bulan)",
       items: [
-        { name: "Roblox Plus Only", price: "Rp 74.000" },
-        { name: "500r + Roblox Plus", price: "Rp 146.500" }
+        { name: "Roblox Plus Only", price: "Rp 95.000" },
+        { name: "500r + Roblox Plus", price: "Rp 167.500" }
       ]
     }
   ]
