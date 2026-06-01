@@ -49,4 +49,4 @@ Window.PRICE_DATA = {
       ]
     }
   ]
-};
+}
