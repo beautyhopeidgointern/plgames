@@ -1,4 +1,4 @@
-Window.PRICE_DATA = {
+window.PRICE_DATA = {
   title: "Robux Vilog",
   subtitle: "Proses manual via log, open setiap 09:00 - 22:30 WIB. Estimasi 1-15 menit, maksimal 60 menit. Tidak wajib menggunakan backup code, tapi harus standby. Jika tidak ada backup code, bisa menggunakan kode email atau metode lainnya, bagian form backup bisa di isi — atau X saja.",
   contact: "6283197962700",
@@ -44,8 +44,8 @@ Window.PRICE_DATA = {
     {
       title: "Roblox Plus (1 Bulan)",
       items: [
-        { name: "Roblox Plus Only", price: "Rp 95.000" },
-        { name: "500r + Roblox Plus", price: "Rp 167.500" }
+        { name: "Roblox Plus Only", price: "Rp 74.000" },
+        { name: "500r + Roblox Plus", price: "Rp 146.500" }
       ]
     }
   ]
