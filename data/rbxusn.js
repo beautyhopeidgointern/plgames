@@ -2,21 +2,12 @@ window.PRICE_DATA = {
   title: "Robux Via Username",
   subtitle: "Proses 1-10 menit, robux langsung masuk dikirim ke username tujuan. Ready limited stock. ⚠️ Khusus akun Roblox yang belum verifikasi usia atau masih di bawah umur wajib menambahkan Parent terlebih dahulu karena robux baru masuk setelah disetujui Parent. Pastikan email akun aktif.",
   contact: "6283197962700",
+
   formFields: [
-    "Pilih Metode Pembayaran",
     "Username Roblox",
-    "Nickname Roblox",
-    "Jumlah Order Robux",
-    "Harga",
-    "Metode Pembayaran"
+    "Nickname Roblox"
   ],
-  paymentMethods: [
-    "Transfer Dana",
-    "Transfer ShopeePay",
-    "SeaBank",
-    "LineBank",
-    "QRIS All Payment"
-  ],
+
   categories: [
     {
       title: "Robux Via Username",
