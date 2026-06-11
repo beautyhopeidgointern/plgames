@@ -1,10 +1,17 @@
 window.GAME_CATALOG = [
   {
     slug: "rbxvlg",
-    name: "Robuc Pilog",
+    name: "Robux Vilog",
     icon: "RBX",
     logo: "https://faqs.uwu.ai/assets/images/gallery03/2ead52f1_original.jpg?v=b41c8d46",
     description: "Robuc Pilog. Proses manual setiap 10:00-22:00 WIB."
+  },
+  {
+    slug: "rbxusn",
+    name: "Robux Transfer",
+    icon: "RBXTF",
+    logo: "https://faqs.uwu.ai/assets/images/gallery03/2ead52f1_original.jpg?v=b41c8d46",
+    description: "Dikirim via username, instant langsung masuk. Limited Stock!"
   },
     {
     slug: "hatopia",
