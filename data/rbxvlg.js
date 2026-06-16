@@ -16,36 +16,36 @@ window.PRICE_DATA = {
     {
       title: "Basic",
       items: [
-        { name: "500 Robux", price: "Rp 73.500" },
-        { name: "580 Robux", price: "Rp 89.500" },
-        { name: "660 Robux", price: "Rp 105.500" },
-        { name: "740 Robux", price: "Rp 120.000" },
-        { name: "820 Robux", price: "Rp 134.000" },
-        { name: "1000 Robux", price: "Rp 147.000" },
-        { name: "1240 Robux", price: "Rp 193.500" },
-        { name: "1500 Robux", price: "Rp 220.500" },
-        { name: "2000 Robux", price: "Rp 294.000" },
-        { name: "2500 Robux", price: "Rp 367.500" },
-        { name: "3000 Robux", price: "Rp 441.000" },
-        { name: "3500 Robux", price: "Rp 514.500" },
-        { name: "4000 Robux", price: "Rp 588.000" },
-        { name: "4500 Robux", price: "Rp 661.500" },
-        { name: "5000 Robux", price: "Rp 735.000" },
-        { name: "5500 Robux", price: "Rp 808.500" },
-        { name: "6000 Robux", price: "Rp 882.000" },
-        { name: "6500 Robux", price: "Rp 955.500" },
-        { name: "7000 Robux", price: "Rp 1.029.000" },
-        { name: "7500 Robux", price: "Rp 1.102.500" },
-        { name: "10000 Robux", price: "Rp 1.470.000" },
-        { name: "13000 Robux", price: "Rp 1.911.000" },
-        { name: "22500 Robux", price: "Rp 3.307.500" }
+        { name: "500 Robux", price: "Rp 74.000" },
+        { name: "580 Robux", price: "Rp 90.000" },
+        { name: "660 Robux", price: "Rp 106.000" },
+        { name: "740 Robux", price: "Rp 120.500" },
+        { name: "820 Robux", price: "Rp 134.500" },
+        { name: "1000 Robux", price: "Rp 148.000" },
+        { name: "1240 Robux", price: "Rp 194.500" },
+        { name: "1500 Robux", price: "Rp 222.000" },
+        { name: "2000 Robux", price: "Rp 296.000" },
+        { name: "2500 Robux", price: "Rp 370.000" },
+        { name: "3000 Robux", price: "Rp 444.000" },
+        { name: "3500 Robux", price: "Rp 518.000" },
+        { name: "4000 Robux", price: "Rp 592.000" },
+        { name: "4500 Robux", price: "Rp 666.000" },
+        { name: "5000 Robux", price: "Rp 740.000" },
+        { name: "5500 Robux", price: "Rp 814.000" },
+        { name: "6000 Robux", price: "Rp 888.000" },
+        { name: "6500 Robux", price: "Rp 962.000" },
+        { name: "7000 Robux", price: "Rp 1.036.000" },
+        { name: "7500 Robux", price: "Rp 1.110.000" },
+        { name: "10000 Robux", price: "Rp 1.480.000" },
+        { name: "13000 Robux", price: "Rp 1.924.000" },
+        { name: "22500 Robux", price: "Rp 3.330.000" }
       ]
     },
     {
-      title: "Roblox Plus (1 Bulan)",
+      title: "Roblox Plus Region Indo (1 Bulan)",
       items: [
-        { name: "Roblox Plus Only", price: "Rp 95.000" },
-        { name: "500r + Roblox Plus", price: "Rp 168.500" }
+        { name: "Roblox Plus", price: "Rp 95.000" },
+        { name: "500r + Roblox Plus", price: "Rp 169.000" }
       ]
     }
   ]
